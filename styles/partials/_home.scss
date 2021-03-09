@@ -35,17 +35,6 @@
   align-items: center;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
 .title {
   margin: 0;
   line-height: 1.15;
@@ -119,4 +108,22 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.header-wrapper {
+    background-image: linear-gradient(0deg, hsla(0%, 0%, 0%, .55), hsla(0%, 0%, 0%, .55)), url('https://images.pexels.com/photos/1714205/pexels-photo-1714205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    margin: 0;
+    padding: 0; /*if your want to padding */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    color: white;
+}
+
+
+// section image
+.scrollmouse-wrapper {
+    position: absolute;
+    bottom: 100px;
 }
