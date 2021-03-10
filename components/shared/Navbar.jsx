@@ -8,14 +8,14 @@ const Navbar = ({navbarBackground}) => {
     const contentsList = (
         <ul className={menuOpen ? "nav-list" : "nav-sublist"}>
             {menuOpen ?
-            <li className="nav-item"><a className="nav-link" onClick={() => setShowContentItems(false)}>
+            <li className="nav-item"><a role="link" aria-label="back" className="nav-link" onClick={() => setShowContentItems(false)}>
                 Back</a>
             </li> : null }
             <li className="nav-item">
-                <Link href="/blog"><a className="nav-link" aria-current="page">Blog</a></Link>
+                <Link href="/blog"><a role="link" aria-label="blog" className="nav-link">Blog</a></Link>
             </li>
             <li className="nav-item">
-                <Link href="/contribution"><a className="nav-link" aria-current="page">Contributions</a></Link>
+                <Link href="/contribution"><a role="link" aria-label="contribution" className="nav-link">Contribution</a></Link>
             </li>
         </ul>
     )
@@ -25,15 +25,15 @@ const Navbar = ({navbarBackground}) => {
             { showContentItems ? <div className="nav-menu-content">{contentsList}</div> :
             <ul className="nav-list">
                 <li className="nav-item">
-                    <Link href="/about"><a className="nav-link" aria-current="page">About</a></Link>
+                    <Link href="/about"><a role="link" aria-label="about" className="nav-link">About</a></Link>
                 </li>
                 <li className="nav-item subnav" onClick={() => {if (menuOpen) setShowContentItems(true)}}>
-                    <a className="nav-link" aria-current="page">Content
+                    <a role="link" aria-label="content" className="nav-link">Content
                     </a>
                     {!menuOpen ? contentsList : null}
                 </li>
                 <li className="nav-item">
-                    <Link href="/contact"><a className="nav-link" aria-current="page">Contact</a></Link>
+                    <Link href="/contact"><a role="link" aria-label="contact" className="nav-link">Contact</a></Link>
                 </li>
             </ul> }
         </nav>
@@ -42,7 +42,7 @@ const Navbar = ({navbarBackground}) => {
     return (
         <>
             <div className="header-title-wrapper" style={{'background-color': (menuOpen || navbarBackground) ? '' : 'transparent'}}>
-                <Link href="/"><a className="navbar-brand nav-link">Alvaro Losada</a></Link>
+                <Link href="/"><a role="link" aria-label="home" className="navbar-brand nav-link">Alvaro Losada</a></Link>
                 <div className={menuOpen ? "menu-btn open" : "menu-btn"} onClick={() => setMenuOpen(!menuOpen)}>
                     <div className="menu-btn__burguer"></div>
                 </div>

@@ -3,7 +3,7 @@ import ScrollMouse from './ScrollMouse';
 
 const Header = () => {
     return(
-        <header id="header" className="page-section header">
+        <header role="banner" id="header" className="page-section header">
             <div className="content-wrapper header-wrapper">
                 <h1>Every coder has their journey.</h1>
                 <h2>This is mine.</h2>
