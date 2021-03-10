@@ -1,0 +1,21 @@
+.blog-summary-entry-list {
+
+    .blog-summary-entry {
+        a {
+            color: black !important;
+        }
+    }
+}
+
+.main-image {
+    display: flex;
+    flex-direction: column;
+
+    .blog-date {
+        margin: 0.3rem 0;
+    }
+}
+
+.main-image div {
+    width: 100%;
+}

@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import {useRouter} from 'next/router';
+
 import Navbar from './shared/Navbar';
 
 const Layout = ({ children }) => {
+    const { asPath } = useRouter()
     const [navbarBackground, setNavbarBackground] = useState(false);
 
     useEffect(() => {
@@ -9,8 +12,11 @@ const Layout = ({ children }) => {
             setNavbarBackground(window.scrollY >= 80 ? true : false);
         }
 
-        window.addEventListener('scroll', changeBackground);
+        if (asPath === "/") window.addEventListener('scroll', changeBackground)
+        else setNavbarBackground(true);
     });
+
+    console.log(asPath)
 
     return (
         <div>

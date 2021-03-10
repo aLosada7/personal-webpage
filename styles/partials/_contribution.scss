@@ -1,0 +1,40 @@
+.contribution-row {
+    margin-bottom: 8rem;
+
+    img {
+        width: 100%;
+        border-radius: 1rem;
+        box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
+    }
+
+    &-content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        h3 {
+            color: #1C1E20;
+            margin-bottom: .5rem;
+        }
+
+        p {
+            color: rgba(0,0,0,.65);
+            line-height: 1.625;
+            margin-bottom: .8rem;
+        }
+    }
+}
+
+.looking-contributors {
+    background: rgb(35, 195, 143);
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: hsla(0,0%,100%,.99);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 0.785rem;
+    font-weight: 600;
+    box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
+    margin-bottom: 1rem;
+}

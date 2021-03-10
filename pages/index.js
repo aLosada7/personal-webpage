@@ -21,13 +21,14 @@ export default function Home({ blogItems }) {
                                 <Link as={`/blog/${blog.slug}`} href="/blog/[id]">
                                     <div className="main-image">
                                         <Image
+                                            layout="responsive"
                                             src={blog.image[0].name}
-                                            width={250}
-                                            height={400}
+                                            width={300}
+                                            height={248}
                                             alt={blog.Headline}
                                         />
-                                        <h1>{blog.Headline}</h1>
-                                        <h2>{blog.date}</h2>
+                                        <Link as={`/blog/${blog.slug}`} href="/blog/[id]"><strong>{blog.Headline}</strong></Link>
+                                        <Link as={`/blog/${blog.slug}`} href="/blog/[id]">{blog.date}</Link>
                                     </div>
                                 </Link>
                             </div>
@@ -46,4 +47,4 @@ export async function getStaticProps() {
       props: { blogItems },
       revalidate: 1,
     };
-  }
+}
