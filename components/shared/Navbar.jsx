@@ -21,7 +21,7 @@ const Navbar = ({navbarBackground}) => {
     )
 
     const navList = (
-        <nav role="navigator" className="nav">
+        <nav role="navigator" className="nav" aria-label="Primary">
             { showContentItems ? <div className="nav-menu-content">{contentsList}</div> :
             <ul className="nav-list">
                 <li className="nav-item">
