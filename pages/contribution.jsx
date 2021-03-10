@@ -14,7 +14,7 @@ export default function Contribution() {
                 </div>
             </section>
             <section className="page-section">
-                <div className="content-wrapper">
+                <div className="content-wrapper contribution">
                     <div className="row">
                         <div className="col-md-8 offset-md-2">
                             <ContributionItem index="0"/>

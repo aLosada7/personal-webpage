@@ -8,20 +8,13 @@ const Layout = ({ children }) => {
     const [navbarBackground, setNavbarBackground] = useState(false);
 
     useEffect(() => {
-        const changeBackground = () => {
-            setNavbarBackground(window.scrollY >= 80 ? true : false);
-        }
-
-        if (asPath === "/") window.addEventListener('scroll', changeBackground)
-        else setNavbarBackground(true);
+        if (asPath !== "/") setNavbarBackground(true); 
     });
-
-    console.log(asPath)
 
     return (
         <div>
             <div className={navbarBackground ? "nav-wrapper background": "nav-wrapper"}>
-                <Navbar />
+                <Navbar navbarBackground={navbarBackground}/>
             </div>
             <div className="main-container">
                 {children}
