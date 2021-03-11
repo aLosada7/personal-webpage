@@ -39,6 +39,33 @@ ul, li {
             padding-left: 6vw;
         }
 
+        .page-title {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .text {
+            letter-spacing: 2px;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        .button {
+            background: rgb(35, 195, 143);
+            width: fit-content;
+            border-radius: 1rem;
+            padding: 1rem;
+            color: hsla(0,0%,100%,.99);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-size: 0.785rem;
+            font-weight: 600;
+            box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
+            margin-bottom: 1rem;
+            border: none;
+        }
+
     }
 
     .content-wrapper.contribution {
@@ -50,10 +77,6 @@ ul, li {
 
 .page-section.first-section {
     padding-top: 120px;
-}
-
-.page-title {
-    margin-bottom: 1rem;
 }
 
 h1 {

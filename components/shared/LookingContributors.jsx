@@ -1,7 +1,7 @@
 export default function LookingContributors() {
     return (
-        <div className="looking-contributors">
-            Looking for new contributors!
+        <div className="button-wrapper">
+            <div className="button">Looking for new contributors!</div>
         </div>
     )
 }

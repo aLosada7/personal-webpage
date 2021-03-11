@@ -10,7 +10,30 @@ export default function Home({ blogItems }) {
         <Layout>
             <Header></Header>
             <section className="page-section">
-                personal presentation
+                <div className="content-wrapper about">
+                    <div className="row">
+                        <div className="col-xs-12 col-md-8 offset-md-2">
+                            <div className="row">
+                                <div className="col-md-6 order-2 order-md-1">
+                                    <div className="about-left">
+                                        <div className="page-title">Hey, I'm Alvaro</div>
+                                        <div className="text">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software using design principles, agile frameworks, and programming disciplines.</div>
+                                        <div className="button-wrrapper">
+                                            <button className="button">Learn More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 order-1 order-md-2">
+                                    <div className="about-img-wrapper">
+                                        <img
+                                            src="/alvaro.jpeg"
+                                            alt="Alvaro profile picture" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section className="page-section entries">
                 <div className="content-wrapper">
