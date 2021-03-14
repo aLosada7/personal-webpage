@@ -1,41 +1,45 @@
 $primary-color: #202D34;
 
 .menu-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    position: fixed;
     cursor: pointer;
+    transition: all .5s ease-in-out;
+    top: 0;
+    right: 0;
+    padding: 32px 20px;
+
+    @media only screen and (max-width: $bp-large) {
+        display: block;
+    }
+}
+
+@mixin burguer {
+    width: 40px;
+    height: 2px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(110, 101, 47, 0.2);
     transition: all .5s ease-in-out;
 }
 
 .menu-btn__burguer {
-    width: 50px;
-    height: 6px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(110, 101, 47, 0.2);
-    transition: all .5s ease-in-out;
+    @include burguer();
 }
 
 .menu-btn__burguer::before,
 .menu-btn__burguer::after {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 6px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(110, 101, 47, 0.2);
-    transition: all .5s ease-in-out;
+    @include burguer();
 }
 
 .menu-btn__burguer::before {
-    transform: translateY(-16px)
+    transform: translateY(-12px)
 }
 
 .menu-btn__burguer::after {
-    transform: translateY(16px)
+    transform: translateY(12px)
 }
 
 /* ANIMATION */

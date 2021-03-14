@@ -3,7 +3,7 @@ import ScrollMouse from './ScrollMouse';
 
 const HomeHeader = () => {
     return(
-        <header role="banner" id="header" className="page-section header">
+        <div className="page-section header">
             <div className="container header-wrapper">
                 <div className="row center">
                     <div className="col-24">
@@ -17,7 +17,7 @@ const HomeHeader = () => {
                 </div>
                 <span className="scrollmouse-wrapper"><ScrollMouse /></span>
             </div>
-        </header>
+        </div>
     )
 }
 

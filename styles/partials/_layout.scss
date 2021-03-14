@@ -1,3 +1,6 @@
+.main-container {
+    min-height: 100vh;
+}
 
 // navbar
 .desktopmenu-header, .mobilemenu-header {
@@ -44,15 +47,6 @@
     @media only screen and (max-width: $bp-tablet) {
         background-color: $primary-color;
         padding: 0.5rem 0;
-    }
-
-    .menu-btn {
-        display: none;
-
-        @media only screen and (max-width: $bp-tablet) {
-            display: flex;
-            margin-right: 2rem;
-        }
     }
 }
 
@@ -182,4 +176,10 @@
 .menu-primary-exit-active {
     transform: translateX(-110%);
     transition: all 500ms ease;
+}
+
+.background {
+    &__about { background-color: #c3f0c8; }
+    &__blog { background-color: #ffcdd2; }
+    &__contact {  background-color: #ffc864; }
 }

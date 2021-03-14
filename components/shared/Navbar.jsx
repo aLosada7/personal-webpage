@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CSSTransition } from 'react-transition-group';
 
-const Navbar = ({navbarBackground}) => {
-    const [open, setOpen] = useState(false);
+const Navbar = ({menu}) => {
     const [showContentItems, setShowContentItems] = useState(false);
 
     const contentsList = (
-        <ul className={open ? "nav-list" : "nav-sublist"}>
-            {open ?
+        <ul className="nav-list">
             <li className="nav-item"><a role="link" aria-label="back" className="nav-link" onClick={() => setShowContentItems(false)}>
                 Back</a>
-            </li> : null }
+            </li>
         </ul>
     )
 
@@ -42,7 +40,7 @@ const Navbar = ({navbarBackground}) => {
                     <div className="menu-btn__burguer"></div>
                 </div>
     </div>*/}
-            <div className={open ? "menu-mobile" : "menu"}>{ navList }</div>
+            <div className={`${menu}`}>{ navList }</div>
         </>
             
   )

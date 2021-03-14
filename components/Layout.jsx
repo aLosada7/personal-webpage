@@ -7,24 +7,29 @@ import MobileMenuHeader from './menu/MobileMenuHeader';
 const Layout = ({ children }) => {
     const { asPath } = useRouter();
     const [showMenu, setShowMenu] = useState(true);
-    const [mainPage, setMainPage] = useState(false);
+    const [page, setPage] = useState(false);
 
     useEffect(() => {
-        const isMainPage = (asPath === "/");
+        setPage(asPath);
+    }, [])
 
+    useEffect(() => {
+        setPage(asPath.substring(1));
         const changeBackground = () => {
-            setShowMenu(window.scrollY >= (isMainPage ? 250 : 80) ? false : true);
+            setShowMenu(window.scrollY >= ((page === "") ? 250 : 80) ? false : true);
         }
 
         window.addEventListener('scroll', changeBackground)
-        if (isMainPage) setMainPage(true); 
     });
 
     return (
         <div>
-            { showMenu ? <DesktopMenuHeader mainPage={mainPage}></DesktopMenuHeader> : null }
+            { showMenu ? <DesktopMenuHeader mainPage={page === ""}></DesktopMenuHeader> : null }
             <MobileMenuHeader></MobileMenuHeader>
-            <div className="main-container">
+            <div className="menu-btn" onClick={() => setOpen(!open)}>
+                    <div className="menu-btn__burguer"></div>
+            </div>
+            <div className={`main-container background__${page}`}>
                 {children}
             </div>
         </div>
