@@ -4,9 +4,9 @@ export default function About() {
     return (
         <Layout>
             <section className="page-section first-section">
-                <div className="content-wrapper">
+                <div className="container mb-l mb-mobile-l">
                     <div className="row">
-                        <div className="col-md-8 offset-md-2">
+                        <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
                             <h2 className="page-title"><strong>About.</strong></h2>
                         </div>
                     </div>

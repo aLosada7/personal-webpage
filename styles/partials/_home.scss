@@ -1,14 +1,5 @@
 $bp-tablet: 768px;
 
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .main {
   padding: 5rem 0;
   flex: 1;
@@ -122,6 +113,11 @@ $bp-tablet: 768px;
     height: 100vh;
     color: white;
     text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100% !important;
 }
 
 

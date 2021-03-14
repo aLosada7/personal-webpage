@@ -1,0 +1,27 @@
+import React from 'react';
+import Link from 'next/link';
+
+import Navbar from '../shared/Navbar';
+
+const DesktopMenuHeader = ({mainPage}) => {
+    return (
+        <header aria-hidden="false" className={`desktopmenu-header ${mainPage ? 'mainmenu' : ''}`}>
+            <div className="desktopmenu-header__container">
+                <div className="header-title-wrapper">
+                    <Link href="/"><a role="link" aria-label="home" className="navbar-brand nav-link">Alvaro Losada</a></Link>
+                </div>
+                <Navbar />
+                <div className="social-networks-wrapper">
+                    <a href="https://www.linkedin.com/in/alvarolosadadecastro/" target="_blank">
+                        <img src="linkedin.svg" alt="My linkedin page"/>
+                    </a>
+                    <a href="https://github.com/aLosada7" target="_blank">
+                        <img src="github.svg" alt="My github page"/>
+                    </a>
+                </div>
+            </div>
+        </header>
+    )
+}
+
+export default DesktopMenuHeader;

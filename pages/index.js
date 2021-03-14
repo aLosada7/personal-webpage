@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Header from '../components/Header';
+import HomeHeader from '../components/HomeHeader';
 
 import Layout from '../components/Layout';
 import fetchFromCMS from '../lib/service';
@@ -8,38 +8,36 @@ import fetchFromCMS from '../lib/service';
 export default function Home({ blogItems }) {
     return (
         <Layout>
-            <Header></Header>
+            <HomeHeader></HomeHeader>
             <section className="page-section">
-                <div className="content-wrapper about">
+                <div className="container about mt-l mt-mobile-l mb-l mb-mobile-l">
                     <div className="row">
-                        <div className="col-xs-12 col-md-8 offset-md-2">
-                            <div className="row">
-                                <div className="col-md-6 order-2 order-md-1">
-                                    <div className="about-left">
-                                        <div className="page-title">Hey, I'm Alvaro</div>
-                                        <div className="text">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software using design principles, agile frameworks, and programming disciplines.</div>
-                                        <div className="button-wrrapper">
-                                            <button className="button">Learn More</button>
-                                        </div>
-                                    </div>
+                        <div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
+                            <div className="about-left">
+                                <h2 className="page-title mb-16">Hey, I'm Alvaro.</h2>
+                                <div className="text mt-16 mb-16">
+                                    <p className="color-light-black line-140">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software using design principles, agile frameworks, and programming disciplines.</p>
                                 </div>
-                                <div className="col-md-6 order-1 order-md-2">
-                                    <div className="about-img-wrapper">
-                                        <img
-                                            src="/alvaro.jpeg"
-                                            alt="Alvaro profile picture" />
-                                    </div>
+                                <div className="button-wrrapper mt-16 mb-16">
+                                    <button className="button">Learn More</button>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="col-8 col-mobile-24 col-offset-mobile-0">
+                            <div className="about-img-wrapper">
+                                <img
+                                    src="/alvaro.jpeg"
+                                    alt="Alvaro profile picture" />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section className="page-section entries">
-                <div className="content-wrapper">
+                <div className="container">
                     <div className="row justify-content-start ">
                     {blogItems.map((blog) => (
-                        <div className="col-md-6" key={blog.slug}>
+                        <div className="col-8 col-mobile-24" key={blog.slug}>
                             <div className="entry mb-3">
                                 <Link as={`/blog/${blog.slug}`} href="/blog/[id]">
                                     <div className="main-image">
