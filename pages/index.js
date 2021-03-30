@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import HomeHeader from '../components/HomeHeader';
+import Image from 'next/image'
+import Link from 'next/link'
 
-import Layout from '../components/Layout';
-import fetchFromCMS from '../lib/service';
+import HomeHeader from '../components/HomeHeader'
+import Layout from '../components/Layout'
+import fetchFromCMS from '../lib/service'
 
 export default function Home({ blogItems }) {
     return (
@@ -14,7 +14,7 @@ export default function Home({ blogItems }) {
                     <div className="row">
                         <div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
                             <div className="about-left">
-                                <h2 className="page-title mb-16">Hey, I'm Alvaro.</h2>
+                                <h3 className="page-title mb-16">Hey, I'm Alvaro.</h3>
                                 <div className="text mt-16 mb-16">
                                     <p className="color-light-black line-140">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software using design principles, agile frameworks, and programming disciplines.</p>
                                 </div>
@@ -33,7 +33,7 @@ export default function Home({ blogItems }) {
                     </div>
                 </div>
             </section>
-            <section className="page-section entries">
+            {/*<section className="page-section entries">
                 <div className="container">
                     <div className="row justify-content-start ">
                     {blogItems.map((blog) => (
@@ -57,15 +57,15 @@ export default function Home({ blogItems }) {
                     ))}
                     </div>
                 </div>
-            </section>
+            </section>*/}
         </Layout>
     );
 }
 
-export async function getStaticProps() {
+/*export async function getStaticProps() {
     const blogItems = await fetchFromCMS('blogs');
     return {
       props: { blogItems },
       revalidate: 1,
     };
-}
+}*/

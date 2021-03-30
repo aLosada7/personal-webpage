@@ -8,7 +8,7 @@ const DesktopMenuHeader = ({mainPage}) => {
         <header role="banner" aria-hidden="false" className={`desktopmenu-header ${mainPage ? 'mainmenu' : ''}`}>
             <div className="desktopmenu-header__container">
                 <div className="header-title-wrapper">
-                    <Link href="/"><a role="link" aria-label="home" className="navbar-brand nav-link">Alvaro Losada</a></Link>
+                    <Link href="/"><a role="link" aria-label="home" className="navbar-brand">alvaro losada</a></Link>
                 </div>
                 <Navbar menu="menu" />
                 <div className="social-networks-wrapper">

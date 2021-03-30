@@ -4,10 +4,11 @@ $primary-color: #202D34;
     display: none;
     position: fixed;
     cursor: pointer;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
     top: 0;
     right: 0;
-    padding: 32px 20px;
+    padding: 42px 20px;
+    z-index: 11;
 
     @media only screen and (max-width: $bp-large) {
         display: block;
@@ -18,7 +19,7 @@ $primary-color: #202D34;
     width: 40px;
     height: 2px;
     border-radius: 5px;
-    background: white;
+    background: $primary-color;
     box-shadow: 0 2px 5px rgba(110, 101, 47, 0.2);
     transition: all .5s ease-in-out;
 }
@@ -32,6 +33,12 @@ $primary-color: #202D34;
     content: '';
     position: absolute;
     @include burguer();
+}
+
+.menu-btn__burguer.main-page,
+.menu-btn__burguer.main-page::before,
+.menu-btn__burguer.main-page::after {
+    background: #FCFCFC ;
 }
 
 .menu-btn__burguer::before {
@@ -50,8 +57,10 @@ $primary-color: #202D34;
 
 .menu-btn.open .menu-btn__burguer::before {
     transform: rotate(45deg) ;
+    background: #FCFCFC;
 }
 
 .menu-btn.open .menu-btn__burguer::after {
-    transform: rotate(-45deg) ;
+    transform: rotate(-45deg);
+    background: #FCFCFC;
 }

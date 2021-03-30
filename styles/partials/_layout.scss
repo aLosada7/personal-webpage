@@ -6,7 +6,7 @@
 .desktopmenu-header, .mobilemenu-header {
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 11;
 }
 
 .desktopmenu-header {
@@ -20,7 +20,22 @@
         display: flex;
         padding: 0 30px;
         background-color: transparent;
-        padding: 1rem 2rem;
+        padding: 2rem;
+    }
+
+    .social-networks-wrapper {
+        width: 20%;
+        display: flex;
+        text-align: right;
+        justify-content: flex-end;
+        align-items: center;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 12px;
+        }
     }
 }
 
@@ -30,23 +45,56 @@
     @media only screen and (max-width: $bp-large) {
         display: block;
     }
+
+    .social-networks-wrapper {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 32px;
+        transform: translateY(100%);
+        transition: all .3s ease-in-out;
+
+        img {
+            @include invertColors;
+        }
+
+        a {
+            margin: 0px 16px;
+        }
+    }
+
+    &__open {
+
+        .header-title-wrapper {
+            color: #FCFCFC;
+        }
+
+        .social-networks-wrapper {
+            transform: translateY(0%) !important;
+        }
+    }
 }
 
 .mainmenu {
     color: white;
 
     img {
-        filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+        @include invertColors;
     }
+}
+
+.mainmenu-mobile {
+    color: #FCFCFC !important;
 }
 
 .header-title-wrapper {
     display: flex;
     width: 20%;
 
-    @media only screen and (max-width: $bp-tablet) {
-        background-color: $primary-color;
-        padding: 0.5rem 0;
+    @media only screen and (max-width: $bp-large) {
+        width: 100%;
     }
 }
 
@@ -60,6 +108,7 @@
         display: flex;
         width: 100%;
         padding: 0;
+        margin: 0;
 
         .nav-item {
             margin: 0 8px;
@@ -78,18 +127,17 @@
         display: block;
     }
 
-    @media only screen and (max-width: $bp-tablet) {
+    @media only screen and (max-width: $bp-large) {
         display: none;
     }
 }
 
 .menu-mobile {
-    width: 100%;
-    background: $primary-color;
-    display:  none;
-    flex-direction: column;
+    height: inherit;
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    color: #FCFCFC;
 
     .nav-list {
         flex-direction: column;
@@ -109,31 +157,43 @@
         }
     }
 
-    @media only screen and (max-width: $bp-tablet) {
+    @media only screen and (max-width: $bp-large) {
         display: flex;
     }
 }
 
-.social-networks-wrapper {
-    width: 20%;
-    display: flex;
-    text-align: right;
-    justify-content: flex-end;
-    align-items: center;
+.menu-container {
+    background-color: #1C1E20;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition: all .3s ease-in-out;
+}
 
-    a {
-        margin-right: 16px;
-    }
+.menu-container-open {
+    transform: translateX(0%);
 }
 
 .nav-menu-content {
     width: 100%;
 }
 
+.footer {
+    background-color: #1C1E20;
+    color: #FCFCFC;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 .nav-wrapper.background {
     background-color: $primary-color !important;
 
-    @media only screen and (max-width: $bp-tablet) {
+    @media only screen and (max-width: $bp-large) {
         position: fixed;
         overflow-y: hidden;
         bottom: 0;
@@ -145,17 +205,21 @@
     width: 100%;
     cursor: pointer;
 
-    @media only screen and (max-width: $bp-tablet) {
+    @media only screen and (max-width: $bp-large) {
         display: flex;
         margin: 3vw 5vw;
         font-size: 1.3rem;
         padding: 0 !important;
+        justify-content: center;
     }
 }
 
-.navbar-brand {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+a.navbar-brand {
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 28px 20px;
+        font-size: 1.3rem;
+    }
 }
 
 .menu-primary-enter {

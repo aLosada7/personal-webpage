@@ -27,8 +27,8 @@ ul, li {
     .button {
         background: rgb(35, 195, 143);
         width: fit-content;
-        border-radius: 1rem;
         padding: 1rem;
+        margin: 1rem 0;
         color: hsla(0,0%,100%,.99);
         text-transform: uppercase;
         letter-spacing: 1.4px;
@@ -37,6 +37,7 @@ ul, li {
         box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
         margin-bottom: 1rem;
         border: none;
+        cursor: pointer;
     }
 
     .content-wrapper.contribution {
@@ -147,15 +148,25 @@ h1, h2, h3, h4, h5, h6 {
     @media only screen and (max-width: $bp-large) {
         font-size: 16px;
     }
+
     margin: 0;
     padding: 0;
     font-weight: 400;
     letter-spacing: 0em;
+    text-transform: none;
 }
+
+h2 { font-size: calc((3.2 - 1) * 1.2vw + 1rem); }
+h3 { font-size: 22px; }
 
 .text-center {
     text-align: center;
 }
+
+@media only screen and (max-width: $bp-large) {
+    .text-center-mobile { text-align: center; }
+}
+
 
 .line-140 {
     line-height: 140%;
@@ -212,4 +223,8 @@ h1, h2, h3, h4, h5, h6 {
 // colors
 .color-light-black {
     color: rgba(0,0,0,.65);
+}
+
+@mixin invertColors {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
 }

@@ -30,4 +30,10 @@
             line-height: 1.625;
         }
     }
+
+    .contribution-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

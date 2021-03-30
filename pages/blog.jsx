@@ -18,7 +18,10 @@ export default function Blog({ blogItems }) {
             </section>
             <section className="page-section">
                 <div className="container">
-                    <div className="row blog-summary-entry-list">
+                    <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
+                        <p className="text-center"><strong>I am working on it and hope it will be available soon. <br />Come later for more updates :)</strong></p>
+                    </div>
+                    {/*<div className="row blog-summary-entry-list">
                         {blogItems.map((blog) => (
                             <div className="col-8 col-mobile-24" key={blog.slug}>
                                 <div className="blog-summary-entry mb-3">
@@ -38,17 +41,17 @@ export default function Blog({ blogItems }) {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div>*/}
                 </div>
             </section>
         </Layout>
     )
 }
 
-export async function getStaticProps() {
+/*export async function getStaticProps() {
     const blogItems = await fetchFromCMS('blogs');
     return {
       props: { blogItems },
       revalidate: 1,
     };
-}
+}*/

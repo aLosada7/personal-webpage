@@ -1,7 +1,8 @@
 import ContributionItem from '../components/ContributionItem';
 import Layout from '../components/Layout';
+import fetchFromCMS from '../lib/service';
 
-export default function Contribution() {
+export default function Contribution({ contributions }) {
     return (
         <Layout>
             <section className="page-section first-section">
@@ -15,18 +16,24 @@ export default function Contribution() {
             </section>
             <section className="page-section">
                 <div className="container contribution">
-                    <div className="row">
-                        <div className="col-24">
-                            <ContributionItem index="0"/>
+                    {contributions.map((contribution, index) => (
+                        <div className="row" key={contribution.lang}>
+                            <div className="col-24">
+                                <ContributionItem index={index} contribution={contribution}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-24">
-                            <ContributionItem index="1"/>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </section>
         </Layout>
     )
+}
+
+export async function getStaticProps() {
+    const contributions = await fetchFromCMS('contributions');
+    console.log(contributions)
+    return {
+      props: { contributions },
+      revalidate: 1,
+    };
 }
