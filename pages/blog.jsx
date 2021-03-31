@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import fetchFromCMS from '../lib/service';
 import Layout from '../components/Layout';
 
 export default function Blog({ blogItems }) {

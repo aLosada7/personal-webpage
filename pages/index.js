@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import HomeHeader from '../components/HomeHeader'
 import Layout from '../components/Layout'
-import fetchFromCMS from '../lib/service'
 
 export default function Home({ blogItems }) {
     return (
@@ -16,10 +15,10 @@ export default function Home({ blogItems }) {
                             <div className="about-left">
                                 <h3 className="page-title mb-16">Hey, I'm Alvaro.</h3>
                                 <div className="text mt-16 mb-16">
-                                    <p className="color-light-black line-140">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software using design principles, agile frameworks, and programming disciplines.</p>
+                                    <p className="color-light-black line-140">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software through writing clean, testable and maintainable code.</p>
                                 </div>
                                 <div className="button-wrrapper mt-16 mb-16">
-                                    <button className="button">Learn More</button>
+                                    <Link href="/about"><button className="button green-button">Learn More</button></Link>
                                 </div>
                             </div>
                         </div>

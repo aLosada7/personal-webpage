@@ -1,22 +1,62 @@
 import ContributionItem from '../components/ContributionItem';
 import Layout from '../components/Layout';
-import fetchFromCMS from '../lib/service';
+import { useEffect, useState } from 'react';
+import { fetchAPI } from '../lib/api';
 
 export default function Contribution({ contributions }) {
+    const [technologySelected, setTechnologySelected] = useState("All");
+    const [techsList, setTechList] = useState([]);
+    const [contributionsFiltered, setContributionsFiltered] = useState([]);
+
+    useEffect(() => {
+        let techList = contributions.reduce((result, contribution) => { 
+            const contributionTechs = contribution.techs.map((tech) => {
+                if(tech && !result.includes(tech)) {
+                    return tech;
+                }
+            })
+            const newTechs = result.concat(contributionTechs)
+            return newTechs.filter(element => element != null)
+        }, ["All"])
+
+        const techsListOrdered = techList.sort(); // sorting string
+        setTechList(techsListOrdered)
+        setContributionsFiltered(contributions)
+    }, [contributions])
+
+    useEffect(() => {
+        const contributionsList = (technologySelected === "All" ? contributions : contributions.filter(contribution => contribution.techs.includes(technologySelected)))
+        setContributionsFiltered(contributionsList)
+    }, [technologySelected])
+    
     return (
         <Layout>
             <section className="page-section first-section">
-                <div className="container mb-l mb-mobile-l">
+                <div className="container mb-l mb-mobile-8">
                     <div className="row">
-                        <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
+                        <div className="col-16 col-mobile-24">
                             <h2 className="page-title"><strong>Contribution.</strong></h2>
                         </div>
                     </div>
                 </div>
             </section>
             <section className="page-section">
+                <div className="container contributionsFilters mb-xs mb-mobile-16">
+                    <div className="row">
+                            <div className="col-16 col-offset-4 col-mobile-24 col-offset-mobile-0">
+                            {techsList.map(tech => (
+                                <button 
+                                    key={tech} 
+                                    className={`button white-button ${(tech === technologySelected) ? 'active-white-button' : ''}`} 
+                                    onClick={() => setTechnologySelected(tech)}>{tech}</button>
+                            ))}
+                            </div>
+                        </div>
+                </div>
+            </section>
+            <section className="page-section">
                 <div className="container contribution">
-                    {contributions.map((contribution, index) => (
+                    {contributionsFiltered.map((contribution, index) => (
                         <div className="row" key={contribution.lang}>
                             <div className="col-24">
                                 <ContributionItem index={index} contribution={contribution}/>
@@ -30,8 +70,7 @@ export default function Contribution({ contributions }) {
 }
 
 export async function getStaticProps() {
-    const contributions = await fetchFromCMS('contributions');
-    console.log(contributions)
+    const contributions = await fetchAPI('/contributions');
     return {
       props: { contributions },
       revalidate: 1,
