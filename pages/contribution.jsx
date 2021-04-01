@@ -22,7 +22,6 @@ export default function Contribution({ contributions = [] }) {
     }
 
     useEffect(() => {
-        console.log(contributions);
         setTechList(getTechsSortedWithoutDuplicates())
         setContributionsFiltered(contributions)
     }, [contributions])
