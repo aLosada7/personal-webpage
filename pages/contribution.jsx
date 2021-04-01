@@ -8,8 +8,8 @@ export default function Contribution({ contributions }) {
     const [techsList, setTechList] = useState([]);
     const [contributionsFiltered, setContributionsFiltered] = useState([]);
 
-    useEffect(() => {
-        let techList = contributions.reduce((result, contribution) => { 
+    const getTechsSortedWithoutDuplicates = () => {
+        let techs = contributions.reduce((result, contribution) => { 
             const contributionTechs = contribution.techs.map((tech) => {
                 if(tech && !result.includes(tech)) {
                     return tech;
@@ -18,9 +18,11 @@ export default function Contribution({ contributions }) {
             const newTechs = result.concat(contributionTechs)
             return newTechs.filter(element => element != null)
         }, ["All"])
+        return techs.sort()
+    }
 
-        const techsListOrdered = techList.sort(); // sorting string
-        setTechList(techsListOrdered)
+    useEffect(() => {
+        setTechList(getTechsSortedWithoutDuplicates())
         setContributionsFiltered(contributions)
     }, [contributions])
 
