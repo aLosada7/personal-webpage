@@ -34,7 +34,7 @@ export default function Contribution({ contributions = [] }) {
     return (
         <Layout>
             <section className="page-section first-section">
-                <div className="container mb-l mb-mobile-8">
+                <div className="content-wrapper">
                     <div className="row">
                         <div className="col-16 col-mobile-24">
                             <h2 className="page-title"><strong>Contribution.</strong></h2>
@@ -43,7 +43,7 @@ export default function Contribution({ contributions = [] }) {
                 </div>
             </section>
             <section className="page-section">
-                <div className="container contributionsFilters mb-xs mb-mobile-16">
+                <div className="content-wrapper contribution-filters">
                     <div className="row">
                             <div className="col-16 col-offset-4 col-mobile-24 col-offset-mobile-0 overflow-x-mobile">
                             {techsList.map(tech => (
@@ -57,7 +57,7 @@ export default function Contribution({ contributions = [] }) {
                 </div>
             </section>
             <section className="page-section">
-                <div className="container contribution">
+                <div className="content-wrapper contribution">
                     {contributionsFiltered.map((contribution, index) => (
                         <div className="row" key={contribution.lang}>
                             <div className="col-24">

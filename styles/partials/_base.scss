@@ -24,11 +24,6 @@ ul, li {
 .page-section {
     width: 100%;
 
-    .content-wrapper.contribution {
-        display: flex;
-        align-items: center;
-    }
-
     // buttons
     .button {
         margin: 1rem 0.5rem;
@@ -74,7 +69,7 @@ ul, li {
 }
 
 .page-section.first-section {
-    padding-top: 120px;
+    padding-top: 82px;
 }
 
 .bi {
@@ -82,12 +77,16 @@ ul, li {
 }
 
 // grid
-.container {
+.content-wrapper {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 60px;
+    padding: 6.6vmax 60px;
     width: 100%;
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 3.3vmax 60px;
+    }
 
     .row {
         box-sizing: border-box;

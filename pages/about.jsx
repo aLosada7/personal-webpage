@@ -4,7 +4,7 @@ export default function About() {
     return (
         <Layout>
             <section className="page-section first-section">
-                <div className="container mb-l mb-mobile-8">
+                <div className="content-wrapper">
                     <div className="row">
                         <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
                             <h2 className="page-title"><strong>About.</strong></h2>
@@ -13,7 +13,7 @@ export default function About() {
                 </div>
             </section>
             <section className="page-section">
-                <div className="container about">
+                <div className="content-wrapper about">
                     <div className="row">
                         <div className="col-24">
                             <p>The truth is that for a long time in my adolescence, it was clear to me that I wanted to be an engineer, and I also liked Computer Science, although I did not really know everything that was hidden behind it. At the time, it was not clear to me whether I should choose Biotechnology or Computer Engineering, and it is now when a few years after finishing my degree at the University of León, I begin to be clear that I made the right choice.</p>

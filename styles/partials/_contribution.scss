@@ -1,5 +1,4 @@
 .contribution-row {
-    margin-bottom: 8rem;
 
     img {
         width: 100%;
@@ -35,5 +34,11 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+}
+
+.contribution-filters {
+    button:first-child {
+        margin-left: 0;
     }
 }

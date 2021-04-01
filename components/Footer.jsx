@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
     return (
         <footer className="page-section footer" role="contentinfo">
-            <div className="container">
+            <div className="content-wrapper">
                 <div className="row">
                     <div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0 text-center-mobile">
                         <strong>alvaro losada</strong>

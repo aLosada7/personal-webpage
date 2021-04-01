@@ -9,7 +9,7 @@ export default function Home({ blogItems }) {
         <Layout>
             <HomeHeader></HomeHeader>
             <section className="page-section">
-                <div className="container about mt-l mt-mobile-l mb-l mb-mobile-l">
+                <div className="content-wrapper about mt-l mt-mobile-l mb-l mb-mobile-l">
                     <div className="row">
                         <div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
                             <div className="about-left">
@@ -33,7 +33,7 @@ export default function Home({ blogItems }) {
                 </div>
             </section>
             {/*<section className="page-section entries">
-                <div className="container">
+                <div className="content-wrapper">
                     <div className="row justify-content-start ">
                     {blogItems.map((blog) => (
                         <div className="col-8 col-mobile-24" key={blog.slug}>

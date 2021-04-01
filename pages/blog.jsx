@@ -7,7 +7,7 @@ export default function Blog({ blogItems }) {
     return (
         <Layout>
             <section className="page-section first-section">
-                <div className="container mb-l mb-mobile-l">
+                <div className="content-wrapper">
                     <div className="row">
                         <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
                             <h2 className="page-title"><strong>Blog.</strong></h2>
@@ -16,7 +16,7 @@ export default function Blog({ blogItems }) {
                 </div>
             </section>
             <section className="page-section">
-                <div className="container">
+                <div className="content-wrapper">
                     <div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
                         <p className="text-center"><strong>I am working on it and hope it will be available soon. <br />Come later for more updates :)</strong></p>
                     </div>
