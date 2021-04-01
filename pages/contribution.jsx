@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { fetchAPI } from '../lib/api';
 
-export default function Contribution({ contributions }) {
+export default function Contribution({ contributions = [] }) {
     const [technologySelected, setTechnologySelected] = useState("All");
     const [techsList, setTechList] = useState([]);
     const [contributionsFiltered, setContributionsFiltered] = useState([]);
