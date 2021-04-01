@@ -8,7 +8,7 @@ export default function Contribution({ contributions = [] }) {
     const [techsList, setTechList] = useState([]);
     const [contributionsFiltered, setContributionsFiltered] = useState([]);
 
-    /*const getTechsSortedWithoutDuplicates = () => {
+    const getTechsSortedWithoutDuplicates = () => {
         let techs = contributions.reduce((result, contribution) => { 
             const contributionTechs = contribution.techs.map((tech) => {
                 if(tech && !result.includes(tech)) {
@@ -30,11 +30,11 @@ export default function Contribution({ contributions = [] }) {
     useEffect(() => {
         const contributionsList = (technologySelected === "All" ? contributions : contributions.filter(contribution => contribution.techs.includes(technologySelected)))
         setContributionsFiltered(contributionsList)
-    }, [technologySelected])*/
+    }, [technologySelected])
     
     return (
         <Layout>
-            {/*<section className="page-section first-section">
+            <section className="page-section first-section">
                 <div className="container mb-l mb-mobile-8">
                     <div className="row">
                         <div className="col-16 col-mobile-24">
@@ -46,7 +46,7 @@ export default function Contribution({ contributions = [] }) {
             <section className="page-section">
                 <div className="container contributionsFilters mb-xs mb-mobile-16">
                     <div className="row">
-                            <div className="col-16 col-offset-4 col-mobile-24 col-offset-mobile-0">
+                            <div className="col-16 col-offset-4 col-mobile-24 col-offset-mobile-0 overflow-x-mobile">
                             {techsList.map(tech => (
                                 <button 
                                     key={tech} 
@@ -67,14 +67,13 @@ export default function Contribution({ contributions = [] }) {
                         </div>
                     ))}
                 </div>
-                    </section>*/}
+            </section>
         </Layout>
     )
 }
 
 export async function getStaticProps() {
-    const contributions = await fetchAPI('/contributions');
-    console.log(contributions);
+    const contributions = await fetchAPI('contributions');
     return {
       props: { contributions },
       revalidate: 1,

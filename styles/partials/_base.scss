@@ -40,6 +40,10 @@ ul, li {
         line-height: 18px;
         font-weight: 500;
         cursor: pointer;
+
+        @media only screen and (max-width: $bp-large) {
+            white-space: nowrap;
+        }
     }
 
     .green-button {
@@ -189,7 +193,6 @@ h3 { font-size: 22px; }
     .text-center-mobile { text-align: center; }
 }
 
-
 .line-140 {
     line-height: 140%;
 }
@@ -225,6 +228,14 @@ h3 { font-size: 22px; }
     .mb-mobile-8 { margin-bottom: 8px; }
     .mb-mobile-16 { margin-bottom: 16px; }
     .mb-mobile-l { margin-bottom: 70px; }
+
+    // overflow-x
+    .overflow-x-mobile {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow: scroll hidden;
+    }
 }
 
 // tags
