@@ -8,8 +8,6 @@ export default function Contribution({ contributions }) {
     const [techsList, setTechList] = useState([]);
     const [contributionsFiltered, setContributionsFiltered] = useState([]);
 
-    console.log(contributions);
-
     const getTechsSortedWithoutDuplicates = () => {
         let techs = contributions.reduce((result, contribution) => { 
             const contributionTechs = contribution.techs.map((tech) => {
@@ -24,6 +22,7 @@ export default function Contribution({ contributions }) {
     }
 
     useEffect(() => {
+        console.log(contributions);
         setTechList(getTechsSortedWithoutDuplicates())
         setContributionsFiltered(contributions)
     }, [contributions])
@@ -75,7 +74,6 @@ export default function Contribution({ contributions }) {
 
 export async function getStaticProps() {
     const contributions = await fetchAPI('/contributions');
-    console.log(contributions);
     return {
       props: { contributions },
       revalidate: 1,
