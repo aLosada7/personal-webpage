@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "markdown-to-jsx": "^7.1.2",
     "next": "10.0.7",
+    "next-on-netlify": "^2.9.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "^4.2.0",
