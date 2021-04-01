@@ -19,22 +19,22 @@ export default function Contribution({ contributions = [] }) {
             return newTechs.filter(element => element != null)
         }, ["All"])
         return techs.sort()
-    }*/
+    }
 
     useEffect(() => {
         console.log(contributions);
-        //setTechList(getTechsSortedWithoutDuplicates())
+        setTechList(getTechsSortedWithoutDuplicates())
         setContributionsFiltered(contributions)
     }, [contributions])
 
     useEffect(() => {
         const contributionsList = (technologySelected === "All" ? contributions : contributions.filter(contribution => contribution.techs.includes(technologySelected)))
         setContributionsFiltered(contributionsList)
-    }, [technologySelected])
+    }, [technologySelected])*/
     
     return (
         <Layout>
-            <section className="page-section first-section">
+            {/*<section className="page-section first-section">
                 <div className="container mb-l mb-mobile-8">
                     <div className="row">
                         <div className="col-16 col-mobile-24">
@@ -67,13 +67,14 @@ export default function Contribution({ contributions = [] }) {
                         </div>
                     ))}
                 </div>
-            </section>
+                    </section>*/}
         </Layout>
     )
 }
 
 export async function getStaticProps() {
     const contributions = await fetchAPI('/contributions');
+    console.log(contributions);
     return {
       props: { contributions },
       revalidate: 1,
