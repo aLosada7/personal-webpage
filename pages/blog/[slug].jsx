@@ -1,9 +1,8 @@
 import Image from 'next/image';
 
 import Layout from '../../components/Layout';
-import fetchFromCMS from '../../lib/service';
 
-const BlogItem = ({ blog }) => {
+const BlogItem = ({ blog = {} }) => {
     return (
         <Layout>
             <div className="row">
@@ -32,7 +31,7 @@ const BlogItem = ({ blog }) => {
       );
   };
 
-export async function getStaticPaths() {
+/*export async function getStaticPaths() {
     const blogs = await fetchFromCMS('blogs');
 
     return {
@@ -52,6 +51,6 @@ export async function getStaticProps({ params }) {
         props: { blog: blog[0] },
         revalidate: 1,
     };
-}
+}*/
 
 export default BlogItem;
