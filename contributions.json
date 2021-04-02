@@ -20,7 +20,7 @@
     {
        "id":2,
        "name":"Corner 11",
-       "smallDescription":"The administration panel of a basketball manager simulator built with React and Node.",
+       "smallDescription":"The administration panel of a basketball manager simulator built with React and Express.",
        "live":"https://corner-11.herokuapp.com",
        "repository":"https://github.com/aLosada7/corner-11-admin",
        "lang":"corner-11",
@@ -28,7 +28,7 @@
        "techs":[
           "React",
           "Redux",
-          "Node",
+          "NodeJS/Express",
           "MongoDB",
           "Javascript"
        ],
@@ -49,8 +49,9 @@
           "Angular",
           "Typescript",
           "Testing",
-          "NgRx",
-          "RxJs",
+          "NGRX",
+          "RxJS",
+          "NodeJS/Express",
           "PostgreSQL"
        ],
        "lookingContributors":true,
