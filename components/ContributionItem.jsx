@@ -23,7 +23,7 @@ const ContributionItem = ({ index, contribution }) => {
     }
 
     return (
-        <div className="row contribution-row mb-l mb-mobile-l">
+        <div className="contribution-row">
             <div className={`col-8 ${(index % 2 === 0) ? ' col-offset-4 order-1' : 'order-2'} order-mobile-1 col-mobile-24 col-offset-mobile-0`}>
                 <img src={`/contributions/${contribution.lang}.png`} alt={contribution.name}/>
             </div>

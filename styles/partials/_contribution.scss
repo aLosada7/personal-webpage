@@ -1,4 +1,6 @@
 .contribution-row {
+    display: flex;
+    flex-wrap: wrap;
 
     img {
         width: 100%;
@@ -38,7 +40,9 @@
 }
 
 .contribution-filters {
-    button:first-child {
-        margin-left: 0;
+    @media only screen and (max-width: $bp-tablet) {
+        button:first-child {
+            margin-left: 0;
+        }
     }
 }

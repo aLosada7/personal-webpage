@@ -60,7 +60,7 @@ export default function Contribution() {
             <section className="page-section">
                 <div className="content-wrapper contribution">
                     {contributionsFiltered.map((contribution, index) => (
-                        <div className="row" key={contribution.lang}>
+                        <div className="row mb-l mb-mobile-l" key={contribution.lang}>
                             <div className="col-24">
                                 <ContributionItem index={index} contribution={contribution}/>
                             </div>
