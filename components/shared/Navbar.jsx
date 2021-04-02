@@ -24,7 +24,7 @@ const Navbar = ({menu}) => {
                     <Link href="/blog"><a role="link" aria-label="blog" className="nav-link">Blog</a></Link>
                 </li>
                 <li className="nav-item">
-                    <a href="https://alvarolosada.netlify.app/contribution" role="link" aria-label="contribution" className="nav-link">Contribution</a>
+                    <Link href="/contribution"><a role="link" aria-label="contribution" className="nav-link">Contribution</a></Link>
                 </li>
                 <li className="nav-item">
                     <Link href="/contact"><a role="link" aria-label="contact" className="nav-link">Contact</a></Link>

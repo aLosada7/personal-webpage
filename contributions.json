@@ -1,0 +1,80 @@
+[
+    {
+       "id":1,
+       "name":"wanda-elements",
+       "smallDescription":"wanda-elements is a list of UI components and micro-interactions built with Angular.",
+       "live":"https://wanda-elements.netlify.app/home",
+       "repository":"https://github.com/aLosada7/angular-wanda-elements",
+       "lang":"wanda-elements",
+       "repositoryAPI":null,
+       "techs":[
+          "Angular",
+          "Typescript",
+          "UI"
+       ],
+       "lookingContributors":false,
+       "published_at":"2021-04-01T10:40:02.286Z",
+       "created_at":"2021-04-01T10:39:55.695Z",
+       "updated_at":"2021-04-01T10:40:02.344Z"
+    },
+    {
+       "id":2,
+       "name":"Corner 11",
+       "smallDescription":"The administration panel of a basketball manager simulator built with React and Node.",
+       "live":"https://corner-11.herokuapp.com",
+       "repository":"https://github.com/aLosada7/corner-11-admin",
+       "lang":"corner-11",
+       "repositoryAPI":"https://github.com/aLosada7/managerAPI",
+       "techs":[
+          "React",
+          "Redux",
+          "Node",
+          "MongoDB",
+          "Javascript"
+       ],
+       "lookingContributors":false,
+       "published_at":"2021-04-01T10:42:00.228Z",
+       "created_at":"2021-04-01T10:41:58.021Z",
+       "updated_at":"2021-04-01T10:42:00.528Z"
+    },
+    {
+       "id":3,
+       "name":"Learning with alvaro",
+       "smallDescription":"For now, a complete authentication system build following TDD to keep a clean, testable and maintainable code.",
+       "live":null,
+       "repository":"https://github.com/aLosada7/corner-11-admin",
+       "lang":"learning-with-alvaro",
+       "repositoryAPI":"https://github.com/aLosada7/learning-with-alvaro-api",
+       "techs":[
+          "Angular",
+          "Typescript",
+          "Testing",
+          "NgRx",
+          "RxJs",
+          "PostgreSQL"
+       ],
+       "lookingContributors":true,
+       "published_at":"2021-04-01T10:42:37.842Z",
+       "created_at":"2021-04-01T10:42:36.017Z",
+       "updated_at":"2021-04-01T14:10:42.845Z"
+    },
+    {
+       "id":4,
+       "name":"Programming notes",
+       "smallDescription":"A repository with my notes regarding programming. Includes coding exercises and their tests, and testing, refactoring, algorithms or Agile design notes.",
+       "live":null,
+       "repository":"https://github.com/aLosada7/programming_notes",
+       "lang":"programming-notes",
+       "repositoryAPI":null,
+       "techs":[
+          "Angular",
+          "React",
+          "Coding exercises",
+          "Testing"
+       ],
+       "lookingContributors":false,
+       "published_at":"2021-04-01T14:50:03.058Z",
+       "created_at":"2021-04-01T10:43:29.065Z",
+       "updated_at":"2021-04-01T20:29:40.599Z"
+    }
+ ]

@@ -1,9 +1,10 @@
 import ContributionItem from '../components/ContributionItem';
 import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
-import { fetchAPI } from '../lib/api';
+import contributions from '../contributions.json';
 
-export default function Contribution({ contributions = [] }) {
+export default function Contribution() {
+
     const [technologySelected, setTechnologySelected] = useState("All");
     const [techsList, setTechList] = useState([]);
     const [contributionsFiltered, setContributionsFiltered] = useState([]);
@@ -71,10 +72,10 @@ export default function Contribution({ contributions = [] }) {
     )
 }
 
-export async function getStaticProps() {
+/*export async function getStaticProps() {
     const contributions = await fetchAPI('contributions');
     return {
       props: { contributions },
       revalidate: 1,
     };
-}
+}*/
