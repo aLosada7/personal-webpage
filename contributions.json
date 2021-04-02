@@ -10,7 +10,7 @@
        "techs":[
           "Angular",
           "Typescript",
-          "UI"
+          "SCSS"
        ],
        "lookingContributors":false,
        "published_at":"2021-04-01T10:40:02.286Z",
@@ -30,7 +30,8 @@
           "Redux",
           "NodeJS/Express",
           "MongoDB",
-          "Javascript"
+          "Javascript",
+          "SCSS"
        ],
        "lookingContributors":false,
        "published_at":"2021-04-01T10:42:00.228Z",
@@ -52,7 +53,8 @@
           "NGRX",
           "RxJS",
           "NodeJS/Express",
-          "PostgreSQL"
+          "PostgreSQL",
+          "SCSS"
        ],
        "lookingContributors":true,
        "published_at":"2021-04-01T10:42:37.842Z",
@@ -71,7 +73,8 @@
           "Angular",
           "React",
           "Coding exercises",
-          "Testing"
+          "Testing",
+          "SCSS"
        ],
        "lookingContributors":false,
        "published_at":"2021-04-01T14:50:03.058Z",
