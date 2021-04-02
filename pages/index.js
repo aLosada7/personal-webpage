@@ -9,7 +9,7 @@ export default function Home({ blogItems }) {
         <Layout>
             <HomeHeader></HomeHeader>
             <section className="page-section">
-                <div className="content-wrapper about mt-l mt-mobile-l mb-l mb-mobile-l">
+                <div className="content-wrapper about">
                     <div className="row">
                         <div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
                             <div className="about-left">
