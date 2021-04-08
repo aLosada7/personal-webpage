@@ -43,7 +43,7 @@
        "name":"Learning with alvaro",
        "smallDescription":"For now, a complete authentication system build following TDD to keep a clean, testable and maintainable code.",
        "live":null,
-       "repository":"https://github.com/aLosada7/corner-11-admin",
+       "repository":"https://github.com/aLosada7/learning-with-alvaro-web",
        "lang":"learning-with-alvaro",
        "repositoryAPI":"https://github.com/aLosada7/learning-with-alvaro-api",
        "techs":[
