@@ -50,7 +50,7 @@ export default function Contribution() {
                             {techsList.map(tech => (
                                 <button 
                                     key={tech} 
-                                    className={`button white-button ${(tech === technologySelected) ? 'active-white-button' : ''}`} 
+                                    className={`button white-button no-wrap ${(tech === technologySelected) ? 'active-white-button' : ''}`} 
                                     onClick={() => setTechnologySelected(tech)}>{tech}</button>
                             ))}
                             </div>

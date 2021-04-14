@@ -17,8 +17,8 @@ export default function Home({ blogItems }) {
                                 <div className="text mt-16 mb-16">
                                     <p className="color-light-black line-140">I’m a software engineer living and working in Asturias. I work daily on building better and elegant software through writing clean, testable and maintainable code.</p>
                                 </div>
-                                <div className="button-wrrapper mt-16 mb-16">
-                                    <Link href="/about"><button className="button green-button">Learn More</button></Link>
+                                <div className="button-wrrapper mt-xxs mb-xxs">
+                                    <Link href="/about"><a role="link" className="button green-button">Learn More</a></Link>
                                 </div>
                             </div>
                         </div>
