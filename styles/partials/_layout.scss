@@ -3,7 +3,13 @@
 }
 
 // navbar
-.desktopmenu-header, .mobilemenu-header {
+.navbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.desktopmenu-header,
+.mobilemenu-header {
     position: fixed;
     width: 100%;
     z-index: 11;
@@ -123,7 +129,7 @@
         overflow: hidden;
     }
 
-    .subnav:hover .nav-sublist{
+    .subnav:hover .nav-sublist {
         display: block;
     }
 
@@ -244,7 +250,15 @@ a.navbar-brand {
 }
 
 .background {
-    &__about { background-color: #c3f0c8; }
-    &__blog { background-color: #ffcdd2; }
-    &__contact {  background-color: #ffc864; }
+    &__about {
+        background-color: #c3f0c8;
+    }
+
+    &__blog {
+        background-color: #ffcdd2;
+    }
+
+    &__contact {
+        background-color: #ffc864;
+    }
 }

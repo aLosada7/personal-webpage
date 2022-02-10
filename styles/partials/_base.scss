@@ -1,12 +1,7 @@
-$bp-tablet: 768px;
-$bp-large: 1024px;
+$bp-mobile: 768px;
+$bp-large: 1024px; // $bp-tablet
 
 $primary-color: rgb(35, 195, 143);
-
-.navbar {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
 
 // links
 a {
@@ -14,15 +9,30 @@ a {
 }
 
 // list
-ul, li {
+ul,
+li {
     list-style-type: none;
     margin-bottom: 0 !important;
 }
 
+// display
+d-flex {
+    display: flex;
+}
 
-// page
+// section
 .page-section {
     width: 100%;
+
+    .py-section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+
+        @media only screen and (max-width: $bp-large) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
 
     // buttons
     .button {
@@ -40,7 +50,7 @@ ul, li {
     }
 
     .no-wrap {
-        @media only screen and (max-width: $bp-large) {
+        @media only screen and (max-width: $bp-mobile) {
             white-space: nowrap !important;
         }
     }
@@ -49,7 +59,7 @@ ul, li {
         background: rgb(35, 195, 143);
         width: fit-content;
         margin: 1rem 0;
-        color: hsla(0,0%,100%,.99);
+        color: rgba(255, 255, 255, 0.99);
         text-transform: uppercase;
         letter-spacing: 1.4px;
         font-size: 0.785rem;
@@ -66,7 +76,7 @@ ul, li {
 
     .active-white-button {
         background-color: rgb(35, 195, 143);
-        color: hsla(0,0%,100%,.99);
+        color: hsla(0, 0%, 100%, .99);
     }
 
 }
@@ -80,15 +90,21 @@ ul, li {
 }
 
 // grid
-.content-wrapper {
+.container {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding: 6.6vmax 60px;
+    padding: 3.3vmax 60px;
     width: 100%;
 
     @media only screen and (max-width: $bp-large) {
-        padding: 3.3vmax 60px;
+        padding: 3.3vmax 20px;
+
+        // useful for photos covering the whole width of the device
+        .mobile-fluid {
+            padding: 0 !important;
+            max-width: none;
+        }
     }
 
     .row {
@@ -101,7 +117,12 @@ ul, li {
         margin-right: -20px;
 
         // cols of 24 de https://www.spotifyjobs.com/categories
-        .col-8, .col-12, .col-16, .col-18, .col-20, .col-mobile-24 {
+        .col-8,
+        .col-12,
+        .col-16,
+        .col-18,
+        .col-20,
+        .col-mobile-24 {
             box-sizing: border-box;
             flex: 0 0 auto;
             padding-right: 20px;
@@ -146,11 +167,15 @@ ul, li {
             margin-left: 16.6666666667%;
         }
 
-        .order-1 { order: 1; }
+        .order-1 {
+            order: 1;
+        }
 
-        .order-2 { order: 2; }
+        .order-2 {
+            order: 2;
+        }
 
-        @media only screen and (max-width: $bp-large) {
+        @media only screen and (max-width: $bp-mobile) {
             .col-mobile-24 {
                 flex-basis: 100%;
                 max-width: 100%;
@@ -160,9 +185,17 @@ ul, li {
                 margin-left: 0;
             }
 
-            .place-up { order: -1; }
-            .order-mobile-1 { order: 1 !important; }
-            .order-mobile-2 { order: 2 !important; }
+            .place-up {
+                order: -1;
+            }
+
+            .order-mobile-1 {
+                order: 1 !important;
+            }
+
+            .order-mobile-2 {
+                order: 2 !important;
+            }
         }
     }
 
@@ -172,9 +205,14 @@ ul, li {
 }
 
 // text
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 
-    @media only screen and (max-width: $bp-large) {
+    @media only screen and (max-width: $bp-mobile) {
         font-size: 16px;
     }
 
@@ -185,53 +223,187 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: none;
 }
 
-h2 { font-size: calc((3.2 - 1) * 1.2vw + 1rem); }
-h3 { font-size: 22px; }
+h2 {
+    font-size: calc((3.2 - 1) * 1.2vw + 1rem);
+}
+
+h3 {
+    font-size: 22px;
+}
 
 .text-center {
     text-align: center;
 }
 
-@media only screen and (max-width: $bp-large) {
-    .text-center-mobile { text-align: center; }
+@media only screen and (max-width: $bp-mobile) {
+    .text-center-mobile {
+        text-align: center;
+    }
 }
 
-.line-140 {
-    line-height: 140%;
+// size (is the only place where we use min-width)
+.size-1 {
+    font-size: 2.5rem;
+    letter-spacing: -.02em;
 }
 
-// margin
-.mt-8 { margin-top: 8px; }
+.size-5 {
+    font-size: 1.375rem;
+}
 
-.mt-16 { margin-top: 16px; }
+@media screen and (min-width: $bp-mobile) {
+    .size-1 {
+        font-size: calc(2.5rem + 3.75 * ((100vw - 48rem) / 42));
+    }
 
-.mt-xxs { margin-top: 25px; }
+    .size-5 {
+        font-size: calc(1.375rem + .25 * ((100vw - 48rem) / 42));
+    }
+}
 
-.mt-xs { margin-top: 40px; }
+// font-weight
+.fw-normal {
+    font-weight: 400;
+}
 
-.mt-l { margin-top: 150px; }
+// line
+$space-values-line : (110, 150) !default;
 
-.mt-xxl { margin-top: 250px; }
+// margin and padding shorthands
+$space-prefixes-line : (line : line-height) !default;
 
-.mb-8 { margin-bottom: 8px; }
+@mixin make-spaces-line() {
 
-.mb-16 { margin-bottom: 16px; }
+    @each $attr-short,
+    $attr-long in $space-prefixes-line {
+        @each $value in $space-values-line {
+            .#{$attr-short}-#{$value} {
+                #{$attr-long}: #{$value}#{'%'};
+            }
+        }
+    }
+}
 
-.mb-xxs { margin-bottom: 25px; }
+@include make-spaces-line();
 
-.mb-xs { margin-bottom: 40px; }
+// colors
+.color-light-black {
+    color: rgba(0, 0, 0, .65);
+}
 
-.mb-l { margin-bottom: 150px; }
+@mixin invertColors {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
 
-.mb-xxl { margin-bottom: 250px; }
+// margin & padding
+$space-values : (0,
+    4,
+    8,
+    16,
+    24,
+    32) !default;
 
-@media only screen and (max-width: $bp-large) {
-    .mt-mobile-0 { margin-top: 0px; }
-    .mt-mobile-l { margin-top: 70px; }
-    
-    .mb-mobile-8 { margin-bottom: 8px; }
-    .mb-mobile-16 { margin-bottom: 16px; }
-    .mb-mobile-l { margin-bottom: 70px; }
+// margin and padding shorthands
+$space-prefixes : (p : padding,
+    pt : padding-top,
+    pr : padding-right,
+    pb : padding-bottom,
+    pl : padding-left,
+    m : margin,
+    mt : margin-top,
+    mr : margin-right,
+    mb : margin-bottom,
+    ml : margin-left,
+) !default;
+
+@mixin make-spaces() {
+
+    @each $attr-short,
+    $attr-long in $space-prefixes {
+        @each $value in $space-values {
+            .#{$attr-short}-#{$value} {
+                #{$attr-long}: #{$value}#{'px'};
+            }
+        }
+    }
+}
+
+@include make-spaces();
+
+.mt-xxs {
+    margin-top: 25px;
+}
+
+.mt-xs {
+    margin-top: 40px;
+}
+
+.mt-l {
+    margin-top: 150px;
+}
+
+.mt-xxl {
+    margin-top: 250px;
+}
+
+.mb-xxs {
+    margin-bottom: 25px;
+}
+
+.mb-xs {
+    margin-bottom: 40px;
+}
+
+.mb-l {
+    margin-bottom: 150px;
+}
+
+.mb-xxl {
+    margin-bottom: 250px;
+}
+
+@media only screen and (max-width: $bp-mobile) {
+    $space-values-mobile: (0,
+            4,
+            8,
+            16,
+            24,
+            32) !default;
+
+    // margin and padding shorthands
+    $space-prefixes-mobile: (p-mobile : padding,
+            pt-mobile : padding-top,
+            pr-mobile : padding-right,
+            pb-mobile : padding-bottom,
+            pl-mobile : padding-left,
+            m-mobile : margin,
+            mt-mobile : margin-top,
+            mr-mobile : margin-right,
+            mb-mobile : margin-bottom,
+            ml-mobile : margin-left,
+        ) !default;
+
+    @mixin make-spaces-mobile() {
+
+        @each $attr-short,
+        $attr-long in $space-prefixes-mobile {
+            @each $value in $space-values-mobile {
+                .#{$attr-short}-#{$value} {
+                    #{$attr-long}: #{$value}#{'px'};
+                }
+            }
+        }
+    }
+
+    @include make-spaces-mobile();
+
+    .mt-mobile-l {
+        margin-top: 70px;
+    }
+
+    .mb-mobile-l {
+        margin-bottom: 70px;
+    }
 
     // overflow-x
     .overflow-x-mobile {
@@ -239,6 +411,17 @@ h3 { font-size: 22px; }
         flex-wrap: nowrap;
         align-items: center;
         overflow: scroll hidden;
+    }
+}
+
+// visibility
+.is-visibile-desktop {
+    display: block;
+}
+
+.is-hidden-mobile {
+    @media only screen and (max-width: $bp-large) {
+        display: none;
     }
 }
 
@@ -256,13 +439,4 @@ h3 { font-size: 22px; }
 .tags-black {
     background: #191414;
     color: #fff;
-}
-
-// colors
-.color-light-black {
-    color: rgba(0,0,0,.65);
-}
-
-@mixin invertColors {
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
 }

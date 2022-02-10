@@ -7,15 +7,26 @@
     }
 }
 
-.main-image {
+.main-image div {
+    width: 100%;
+}
+
+.blog-entry {
+
     display: flex;
     flex-direction: column;
 
-    .blog-date {
-        margin: 0.3rem 0;
+    &-title,
+    &-read-more {
+        cursor: pointer;
     }
-}
 
-.main-image div {
-    width: 100%;
+    &-title {
+        font-size: calc((2.8 - 1) * 1.2vw + 1rem);
+    }
+
+    &-read-more {
+        text-decoration: underline;
+        color: #020086;
+    }
 }

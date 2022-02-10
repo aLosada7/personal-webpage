@@ -1,0 +1,18 @@
+[{
+        "id": 1,
+        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "headline": "Blog 1",
+        "description": "This is the blog 1",
+        "slug": "blog1",
+        "date": "21/2/2020"
+    },
+    {
+        "id": 2,
+        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "headline": "Blog 2",
+        "description": "This is the blog 2",
+        "slug": "blog2",
+        "date": "21/2/2020"
+    }
+
+]
