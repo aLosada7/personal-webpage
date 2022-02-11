@@ -24,6 +24,13 @@ export default function Footer() {
 									</a>
 								</Link>
 							</li>
+							<li className="nav-item">
+								<Link href="https://codepen.io/alosada7">
+									<a role="link" aria-label="codepen" className="nav-link">
+										CodePen
+									</a>
+								</Link>
+							</li>
 						</ul>
 					</div>
 				</div>
