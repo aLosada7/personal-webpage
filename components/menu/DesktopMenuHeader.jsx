@@ -17,13 +17,13 @@ const DesktopMenuHeader = ({ mainPage }) => {
 				<Navbar menu="menu" />
 				<div className="social-networks-wrapper">
 					<a href="https://www.linkedin.com/in/alvarolosadadecastro/" target="_blank">
-						<img src="linkedin.svg" alt="My linkedin page" />
+						<img src="/linkedin.svg" alt="My linkedin page" />
 					</a>
 					<a href="https://github.com/aLosada7" target="_blank">
-						<img src="github.svg" alt="My github page" />
+						<img src="/github.svg" alt="My github page" />
 					</a>
 					<a href="https://codepen.io/alosada7" target="_blank">
-						<img src="codepen.svg" alt="My codepen page" />
+						<img src="/codepen.svg" alt="My codepen page" />
 					</a>
 				</div>
 			</div>

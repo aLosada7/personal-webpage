@@ -1,18 +1,26 @@
 [{
         "id": 1,
-        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "headline": "Blog 1",
-        "description": "This is the blog 1",
-        "slug": "blog1",
-        "date": "21/2/2020"
+        "headline": "Building a monorepo to host a component library",
+        "description": "Use Nx to build in minutes a brand new component library for your company or side-project",
+        "slug": "nx-component-library",
+        "tags": ["Nx"],
+        "date": "February 17th 2022"
     },
     {
         "id": 2,
-        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "headline": "Blog 2",
-        "description": "This is the blog 2",
-        "slug": "blog2",
-        "date": "21/2/2020"
+        "headline": "A guide start to micro-frontends in Angular",
+        "description": "It's time to create your first project using micro-frontends in Angular",
+        "slug": "angular-microfrontends",
+        "tags": ["Research"],
+        "date": "February 24th 2022"
+    },
+    {
+        "id": 3,
+        "headline": "Publish Storybook from a Nx monorepo",
+        "description": "Deploy your storybook online and use it for testing",
+        "slug": "publish-storybook-nx",
+        "tags": ["Nx"],
+        "date": "February 24th 2022"
     }
 
 ]

@@ -1,5 +1,6 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import { Container, Row, Text } from "dana-react";
 
 import Layout from "../../components/Layout";
 
@@ -9,22 +10,19 @@ export default function BlogItem({ siteTitle, frontmatter, markdownBody }) {
 	return (
 		<Layout pageTitle={`${siteTitle}`}>
 			<section className="page-section first-section py-section">
-				<div className="container">
-					<div className="row">
-						<div className="blog-image text-center mb-4">
-							<div className="col-md-12">Image</div>
-						</div>
-					</div>
-					<div className="row">
-						<article>
-							<h1>{frontmatter.title}</h1>
-							<p>{frontmatter.date}</p>
-							<div>
-								<ReactMarkdown children={markdownBody} />
-							</div>
-						</article>
-					</div>
-				</div>
+				<Container ph={16} pv={16}>
+					<article>
+						<Row py={10}>
+							<h2>{frontmatter.title}</h2>
+							<Text size="h5" mt={4}>
+								{frontmatter.date}
+							</Text>
+						</Row>
+						<Row py={10}>
+							<ReactMarkdown children={markdownBody} />
+						</Row>
+					</article>
+				</Container>
 			</section>
 		</Layout>
 	);

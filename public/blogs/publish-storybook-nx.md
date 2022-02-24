@@ -1,0 +1,13 @@
+---
+title: Publish Storybook from a Nx monorepo
+date: February 24th 2022
+---
+
+[https://stackoverflow.com/questions/65041989/storybook-angular-nx-workspace-how-to-publish-using-chromatic](https://stackoverflow.com/questions/65041989/storybook-angular-nx-workspace-how-to-publish-using-chromatic)
+
+1. Run _build-storybook_ in your library
+2. Create your proyect to obtain a key in Chromatic
+
+Alternative:
+
+Create a new command in _project.json_ with the following content:

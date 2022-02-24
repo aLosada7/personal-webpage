@@ -1,0 +1,42 @@
+---
+title: Building a monorepo to host a component library
+date: February 17th 2022
+---
+
+Nx ([nx.dev](http://nx.dev)) aims to develop complex an scalable applications being these more maintainable and with more developers working on them.
+
+Developed by Google and used by themselves, Microsoft, Facebook and another big companies to manage complexity by applying best practices.
+
+## Advantages of the monorepo
+
+-   Faster development
+-   Helps us to manage complexity: Share interfaces, collaboration between team members (organisation-wide best practices), ...
+-   Scalable, also helping to share code between projects
+-   For example, lint, prettier and config editor working together for all projects ([https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/](https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/))
+-   Cross-cutting dependencies, builds, test coverage, ...
+
+## Creating a library
+
+First of all, let's create a new workspace running:
+
+```bash
+npx create-nx-workspace monorepo-library
+```
+
+Most important folders are _apps_ and _libs_ directories, where all our applications and utilities will reside.
+
+Let's create a library which will **share** common helpoer functions to be used in different front-end projects.. A monorepo it is also very useful to share TS interfaces between your front-end and your back-end code. We can also create a library will contain a **design system** created for example, with Storybook. ~~(storybook blog)~~
+
+To archieve this, we first have to add a plugin which supports React in our monorepo. Run:
+
+```bash
+ng add @nrwl/react
+```
+
+We can select cypress for testing and there are other options, but we are just going to make a first approach in this post. It's very easy to configure stuff like cypress, lint and other stuff and if you have any doubt, don't hesitate to contact me.
+
+As we are using Typescript for this project, there is a lot of steps involved you need to set up. Fortunatelly, Nx takes care of this so you can focus on the most important part, developing.
+
+If we export a component or a helper function, we can use it from any application. Let's check this works.
+
+## Using this library from an application inside the monorepo
