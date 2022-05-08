@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollMouse from "./ScrollMouse";
+import ScrollMouse from "../ScrollMouse";
 
 const HomeHeader = () => {
 	return (

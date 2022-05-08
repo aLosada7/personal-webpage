@@ -1,10 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
+import HomeHeader from "../components/layout/HomeHeader";
+import Layout from "../components/layout/Layout";
 
-import HomeHeader from "../components/HomeHeader";
-import Layout from "../components/Layout";
-
-export default function Home({ blogItems }) {
+export default function Home() {
 	return (
 		<Layout>
 			<HomeHeader></HomeHeader>

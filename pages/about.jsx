@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 
 export default function About() {
 	return (
@@ -17,7 +17,7 @@ export default function About() {
 			<section className="page-section">
 				<div className="container about">
 					<div className="row">
-						<div className="col-24">
+						<div className="col-24 col-mobile-24 col-offset-mobile-0">
 							<p>
 								The truth is that for a long time in my adolescence, it was clear to me that I wanted to
 								be an engineer, and I also liked Computer Science, although I did not really know

@@ -1,5 +1,5 @@
-import ContributionItem from "../components/ContributionItem";
-import Layout from "../components/Layout";
+import ContributionItem from "../components/contribution/ContributionItem";
+import Layout from "../components/layout/Layout";
 import { useEffect, useState } from "react";
 import contributions from "../contributions.json";
 

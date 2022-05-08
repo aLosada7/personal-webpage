@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Navbar from "../shared/Navbar";
+import Navbar from "./Navbar";
 
 const DesktopMenuHeader = ({ mainPage }) => {
 	return (
