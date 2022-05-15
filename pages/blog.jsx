@@ -24,6 +24,7 @@ const Tags = ({ tags }) => {
 		<>
 			{tags.map((tag) => (
 				<Badge
+					key={tag}
 					color="gray"
 					text={tag}
 					cssOverrides={css`
@@ -38,7 +39,7 @@ const Tags = ({ tags }) => {
 const FeaturedBlogPost = ({ blog }) => (
 	<Link href={{ pathname: `/blog/${blog.slug}` }}>
 		<article>
-			<Image src={`/blogs/${blog.slug}.jpeg`} size="d" alt="Picture of a mountain" />
+			<Image src={`/blogs/${blog.slug}.webp`} size="d" alt="Picture of a mountain" />
 			<Text size="xxsm" mt={2}>
 				{blog.date}
 			</Text>
@@ -68,7 +69,7 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 					`}
 				>
 					<Image
-						src={`/blogs/${blog.slug}.jpeg`}
+						src={`/blogs/${blog.slug}.webp`}
 						alt="Picture of a mountain"
 						size="e"
 						cssOverrides={css`
@@ -111,7 +112,7 @@ const BlogAllSection = ({ blog }) => {
 		>
 			<Link href={{ pathname: `/blog/${blog.slug}` }}>
 				<article>
-					<Image src={`/blogs/${blog.slug}.jpeg`} alt="Picture of a mountain" />
+					<Image src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
 					<Text size="xxsm" mt={2}>
 						{blog.date}
 					</Text>
@@ -241,16 +242,13 @@ export default function Blog() {
 						</Col>
 						<Col md={18}>
 							<Row
-								cssOverrides={css`
-									${until.phablet} width: 100%;
+								cssOverrides={`
+									width: 100%;
 								`}
 							>
 								{blogsFiltered.map((blog) => (
 									<BlogAllSection blog={blog} key={blog.slug} />
 								))}
-								{/* {blogs.map((blog) => (
-									<BlogAllSection blog={blog} key={blog.slug} />
-								))} */}
 							</Row>
 						</Col>
 					</Row>
