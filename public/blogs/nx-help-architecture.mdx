@@ -1,0 +1,61 @@
+---
+title: How a monorepo tool can help you to isolate your architecture from the framework
+date: May 15th 2022
+---
+
+export const meta = {
+	title: "How a monorepo tool can help you to isolate your architecture from the framework",
+	publishedOn: "May 15th 2022",
+	slug: "nx-help-architecture",
+};
+
+## Nx: my favourite tool to create a testable UI architecture
+
+Nx ([nx.dev](http://nx.dev)) aims to develop complex an scalable applications being these more maintainable at the same time the number of developers working on it grows.
+
+Developed by Google and used by themselves, Microsoft, Facebook and another big companies to manage complexity by applying best practices.
+
+## Advantages of the monorepo
+
+-   Faster development and flexibility
+-   Improves code organization
+-   Helps us to manage complexity: Share interfaces, collaboration between team members (organisation-wide best practices), ...
+-   Scalable, also helping to share code between projects
+-   Enforces best practices. For example, lint, prettier and config editor working together for all projects ([https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/](https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/))
+-   Cross-cutting dependencies, builds, test coverage, ...
+
+## Creating a library
+
+First of all, let's create a new workspace running:
+
+```bash
+npx create-nx-workspace monorepo-library
+```
+
+Most important folders are _apps_ and _libs_ directories, where all our applications and utilities will reside.
+
+Let's create a library which will **share** common helpers functions to be used in different front-end projects.. A monorepo it is also very useful to share TS interfaces between your front-end and your back-end code. We can also create a library will contain a **design system** created for example, with Storybook.
+
+To archieve this, we first have to add a plugin which supports React in our monorepo. Run:
+
+```bash
+ng add @nrwl/react
+```
+
+We can select cypress for testing and there are other options, but we are just going to make a first approach in this post. It's very easy to configure stuff like cypress, lint and other stuff and if you have any doubt, don't hesitate to contact me.
+
+As we are using Typescript for this project, there is a lot of steps involved you need to set up. Fortunatelly, Nx takes care of this so you can focus on the most important part, developing.
+
+If we export a component or a helper function, we can use it from any application. Let's check this works.
+
+## Using this library from an application inside the monorepo
+
+We have isolated our business and presentation logic in a library, and now it is time to focus on the UI framework. Nx has a great support for different modern frameworks and libraries as React, Angular, Vue, Next.js, ...
+
+Apart from this, Nx allows you to create create at the a same time a c2e project, which will allow you to test the user flow with Cypress.
+
+I encorauge you to use the Nx Console extension for VSCode to add any project, including applications. You can click the button Generate, at the top right of the Nx console screen, which will take you a list of options where you can find your favourite front-end frameworks.
+
+## Final thoughts
+
+As a Front-end Engineer you should focus on creating scalable and maintable applications. The best way is to archive this is to think like a UI architecture, creating a testable application which also follows some of the best practices to ensure code quality.
