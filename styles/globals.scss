@@ -7,6 +7,7 @@
 @import 'partials/_contribution.scss';
 @import 'partials/_blog.scss';
 @import 'partials/_scrollMouse.scss';
+@import 'partials/codeBlock';
 
 @import 'san-valentine.scss';
 
@@ -28,8 +29,16 @@ a {
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
 }
 
 .navbar {
     height: 80px;
+}
+
+img {
+    max-width: 100vh;
 }

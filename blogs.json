@@ -1,18 +1,26 @@
 [{
         "id": 1,
-        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "headline": "Blog 1",
-        "description": "This is the blog 1",
-        "slug": "blog1",
-        "date": "21/2/2020"
+        "headline": "How a monorepo tool can help you to isolate your architecture from the framework",
+        "description": "Use Nx to create scalable applications with a testable architecture",
+        "slug": "nx-help-architecture",
+        "tags": ["Nx"],
+        "date": "May 15th 2022"
     },
     {
         "id": 2,
-        "image": "https://images.pexels.com/photos/4898516/pexels-photo-4898516.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "headline": "Blog 2",
-        "description": "This is the blog 2",
-        "slug": "blog2",
-        "date": "21/2/2020"
+        "headline": "A guide start to micro-frontends in Angular",
+        "description": "It's time to create your first project using micro-frontends in Angular",
+        "slug": "angular-microfrontends",
+        "tags": ["Research"],
+        "date": "May 15th 2022"
+    },
+    {
+        "id": 3,
+        "headline": "Publish a Storybook with Nx",
+        "description": "Deploy your storybook online at the same time you introduce automatic visual testing",
+        "slug": "publish-storybook-nx",
+        "tags": ["Nx"],
+        "date": "May 15th 2022"
     }
 
 ]

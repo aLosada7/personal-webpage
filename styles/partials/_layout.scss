@@ -24,15 +24,15 @@
 
     &__container {
         display: flex;
-        padding: 0 30px;
+        justify-content: space-between;
+
         background-color: transparent;
         padding: 2rem;
     }
 
     .social-networks-wrapper {
-        width: 20%;
         display: flex;
-        text-align: right;
+        flex-direction: row;
         justify-content: flex-end;
         align-items: center;
 
@@ -97,7 +97,6 @@
 
 .header-title-wrapper {
     display: flex;
-    width: 20%;
 
     @media only screen and (max-width: $bp-large) {
         width: 100%;
@@ -105,16 +104,13 @@
 }
 
 .menu {
-    width: 60%;
     display: flex;
     justify-content: center;
 
     .nav-list {
-        flex-direction: row;
         display: flex;
-        width: 100%;
-        padding: 0;
-        margin: 0;
+        flex-direction: row;
+        min-width: 100%;
 
         .nav-item {
             margin: 0 8px;
@@ -254,11 +250,11 @@ a.navbar-brand {
         background-color: #c3f0c8;
     }
 
-    &__blog {
-        background-color: #ffcdd2;
-    }
-
     &__contact {
         background-color: #ffc864;
+    }
+
+    &__blog {
+        background-color: hsl(210, 38%, 97%);
     }
 }

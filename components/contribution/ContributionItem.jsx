@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Markdown from "markdown-to-jsx";
 
-import LookingContributors from "./shared/LookingContributors";
-import { getStrapiMedia } from "../lib/media";
+import LookingContributors from "./LookingContributors";
 
 const ContributionItem = ({ index, contribution }) => {
 	let interactiveDemo = null;
