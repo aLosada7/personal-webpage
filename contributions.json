@@ -2,7 +2,7 @@
         "id": 1,
         "name": "dana",
         "smallDescription": "A fresh UI component library for React written in Typescript. New features available daily!",
-        "live": "https://61d7f5a3a20987003a2006c1-uqwiktupyp.chromatic.com/?path=/story/getting-started-intro--page",
+        "live": "https://master--61d7f5a3a20987003a2006c1.chromatic.com",
         "repository": "https://github.com/aLosada7/dana",
         "lang": "dana",
         "repositoryAPI": null,
