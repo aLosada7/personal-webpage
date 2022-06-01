@@ -708,10 +708,10 @@ csstype@^3.0.2:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.0.7.tgz"
   integrity sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==
 
-dana-react@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/dana-react/-/dana-react-1.0.16.tgz"
-  integrity sha512-s6VTTU70b0hSQMf4yaSf9Ms4Qa0xbMSVYvYd4RnFMXYpBojqEizByI4iOtOrfLfjyEvOLWIzfXdkwW2MQmMVNw==
+dana-react@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/dana-react/-/dana-react-1.0.17.tgz#ba2a9da241e1a78ef6fa2893ef628fec677ca5c2"
+  integrity sha512-SJ5HX02RSIVuwPg2+o9i/wVIa5rk2387m4fsnG8cKWSjRR0MLYJQ2EUUEcPTvDafBlwO6G71o1J/rLhNsLdzOg==
 
 debug@^4.0.0, debug@^4.3.1:
   version "4.3.4"
