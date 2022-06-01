@@ -21,6 +21,14 @@
         "slug": "publish-storybook-nx",
         "tags": ["Nx"],
         "date": "May 15th 2022"
+    },
+    {
+        "id": 4,
+        "headline": "Creating a radio group reusable component",
+        "description": "The key trick for creating rich radio groups",
+        "slug": "radio-group",
+        "tags": ["React"],
+        "date": "June 1th 2022"
     }
 
 ]

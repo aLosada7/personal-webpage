@@ -1,0 +1,121 @@
+---
+title: Creating a radio group reusable component
+date: June 1th 2022
+---
+
+export const meta = {
+	title: "Creating a radio group reusable component",
+	publishedOn: "June 1th 2022",
+	slug: "radio-group",
+};
+
+Imagine we have a new feature to implement where is required to add a radio group selection. First, we could be thinking about this code:
+
+```tsx
+const Template = () => {
+	const [value, setValue] = React.useState("1");
+	return (
+		<RadioGroup onChange={setValue}>
+			<Radio value="1">First</Radio>
+			<Radio value="2">Second</Radio>
+			<Radio value="3">Third</Radio>
+		</RadioGroup>
+	);
+};
+```
+
+However, things are more complicated and it is possible that, for example, your UI needs to recollect more data apart from the option selected. We are required to build a reusable radio group component which allows us to do this. We can see an example in the following picture.
+
+![Radio Group UI](/blogs/radio-group/radio-group.png)
+
+## Implementing the solution
+
+The solution to this problem is basically to introduce a context that allows us to pass some information from the highest level component (RadioGroup) to the lowest level one (Radio). This solution will work no matter how deep the radio button is located. This allows us to create a richer interface with a few lines of code.
+
+```tsx
+import React, { createContext, ReactElement } from "react";
+
+export interface RadioGroupContext {
+	value?: string | number;
+	onChange?(nextValue: string): void;
+}
+
+export const RadioGroupContext = createContext<RadioGroupContext>({});
+
+export interface RadioGroupProps {
+	value?: string;
+	onChange?: any;
+	children: ReactElement[];
+}
+
+export const RadioGroup = ({ value, onChange, children }: RadioGroupProps) => {
+	return (
+		<RadioGroupContext.Provider value={{ value, onChange }}>
+			<div>{children}</div>
+		</RadioGroupContext.Provider>
+	);
+};
+```
+
+We have introduced a context, and now we need to handle its actions. We will do it using a react hook.
+
+```tsx
+import React from "react";
+import { useContext } from "react";
+import { RadioGroupContext } from "../RadioGroup";
+
+export const useRadioGroupContext = () => {
+	const { value, onChange: onChangeProp } = useContext(RadioGroupContext);
+
+	const onChange = React.useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>) => {
+			const nextValue = event.target.value;
+
+			onChangeProp?.(nextValue);
+		},
+		[onChangeProp]
+	);
+
+	return { value, onChange };
+};
+```
+
+Finally, here is the code for the UI we saw above.
+
+```tsx
+const PaymentForm = () => {
+	const [value, setValue] = useState("1");
+	return (
+		<Container>
+			<Title size="h5" mt={4} mb={4}>
+				Secure Payment
+			</Title>
+			<RadioGroup kind="wrap" onChange={setValue} value={value} {...props}>
+				<div css={optionWrapper}>
+					<Radio value="1">Credit or debit card</Radio>
+					<TextInput placeholder="Card Number" leftIcon={<MaterialIcon>credit_card</MaterialIcon>} />
+					<TextInput placeholder="Card holder name" />
+				</div>
+				<div css={optionWrapper}>
+					<Radio value="2" cssLabelOverrides={onlyRadio}>
+						$17/month with Affirt
+					</Radio>
+				</div>
+				<div css={optionWrapper}>
+					<Radio value="3" cssLabelOverrides={onlyRadio}>
+						Solana Pay
+					</Radio>
+				</div>
+			</RadioGroup>
+		</Container>
+	);
+};
+```
+
+Important: Elements like Container, Title or TextInput comes from my component library **dana**, which I have been working on for months as part of a learning process and also the intention to have a rich and testable UI component library made by my own.
+
+![Resultant Radio Group](/blogs/radio-group/resultant-radio-group.png)
+
+## Final thoughts
+
+The creation of reusable components can be tricky when UI gets complicated. It is important to look to the future at the moment you are implementing a new feature. This will help you to create a more readable and maintanable code. But when requirements change, we have to be open to introduce modifications without breaking existant code, which might be being used by thousands of users.
