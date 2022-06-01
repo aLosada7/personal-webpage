@@ -210,12 +210,7 @@ export default function Blog() {
 						All blog posts
 					</Title>
 					<Row>
-						<Col
-							md={6}
-							cssOverrides={css`
-								margin-bottom: 1.5rem;
-							`}
-						>
+						<Col md={8} lg={6}>
 							<SideNav aria-label="Side navigation">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
 									<SideNavPrincipal title="Blog categories">
@@ -240,13 +235,9 @@ export default function Blog() {
 								</SideNavItems>
 							</SideNav>
 						</Col>
-						<Col md={18}>
-							<Row
-								cssOverrides={`
-									width: 100%;
-								`}
-							>
-								{blogsFiltered.map((blog) => (
+						<Col md={16} lg={18}>
+							<Row>
+								{blogsFiltered.reverse().map((blog) => (
 									<BlogAllSection blog={blog} key={blog.slug} />
 								))}
 							</Row>

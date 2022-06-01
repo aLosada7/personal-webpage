@@ -11,7 +11,9 @@ const components = {
 	p: PText,
 	pre: (props) => <div {...props} />,
 	code: CodeBlock,
-	img: (props) => <Image {...props} />,
+	img: (props) => {
+		return <Image size="c" objectFit="contain" targetBlank {...props} />;
+	},
 	ul: (props) => <ul style={{ marginLeft: "2rem", listStyle: "disc !important" }} {...props} />,
 };
 
