@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+import { Text } from "dana-react";
+
 import Layout from "../components/layout/Layout";
 
 export default function About() {
@@ -17,45 +21,54 @@ export default function About() {
 			<section className="page-section">
 				<div className="container about">
 					<div className="row">
-						<div className="col-24 col-mobile-24 col-offset-mobile-0">
-							<p>
+						<div className="col-12 col-mobile-24 col-offset-mobile-0">
+							<img src="/aboutPhoto.jpg" style={{ width: "-webkit-fill-available" }} />
+						</div>
+						<div className="col-12 col-mobile-24 col-offset-mobile-0">
+							<Text mt={4} mb={4}>
 								The truth is that for a long time in my adolescence, it was clear to me that I wanted to
-								be an engineer, and I also liked Computer Science, although I did not really know
-								everything that was hidden behind it. At the time, it was not clear to me whether I
-								should choose Biotechnology or Computer Engineering, and it is now when a few years
-								after finishing my degree at the University of León, I begin to be clear that I made the
-								right choice.
-							</p>
-							<p>
-								In 2018 I graduated in Computer Engineering, and I decided to move to Oviedo to do a
-								master's degree and thus finish my training process (also to live with my friends,
-								things as they are).
-							</p>
-							<p>
-								After years of getting a base, I began to be clear about what I wanted to do. Thanks to
-								Indra, shortly after I got my first job, I still find myself today. It was a great
-								opportunity, in which, in addition to helping me train, they allowed me to work on
-								various projects of already significant size. We work with Angular, HTML, CSS or Node.
-								And from here, everything went forward.
-							</p>
-							<p>
-								I met new colleagues and technologies, and I became more and more interested in
-								fundamental aspects and not so much of what my usual job is. After a while, my head
-								began to accept new concepts that today are my writing software fundamentals. I try to
-								follow design principles and programming disciplines to write clean, testable and
-								maintainable code in my day-to-day life.
-							</p>
-							<p>
-								New opportunities arose, and with them, I was able to work with React, Redux, Typescript
-								and more. Today I continue working with the same company, eager to continue learning and
-								growing.
-							</p>
-							<p>
-								After almost 2 years I have joined a new company, Emais, where as a Front End Software
-								Engineer I face new challenges. I am also going to start writing my own blog about
-								complex concepts and stuff regarding front end development world.
-							</p>
-							<p>My story will continue.</p>
+								become an Engineer some day. Computer Science sounded good to me, although I did not
+								really know what it was about until I went to the university. Before this, I thought for
+								several time about studying Biotechnology, which I discarded when it was time to choose.
+								It took me a few months after starting my studies in Computer Science to know I had made
+								the right decision.
+							</Text>
+							<Text mt={4} mb={4}>
+								In 2018, after four years in the university, including a last year internship at Indra I
+								graduated in Computer Engineering. That summer I decided to move to Oviedo to do a Web
+								Engineering’s Master’s degree and thus finish my training process (I wanted to live with
+								some friends too). This decision was motivated after the year working with great
+								professionals at Indra, who showed me how wide is this world. I particularly liked
+								working on web applications, creating one to monitor Jira projects life cycle for my
+								thesis.
+							</Text>
+							<Text mt={4} mb={4}>
+								Doing this course all my doubts flew away and I was certain about what I wanted to do.
+								Thanks to Indra, shortly after they offered me a full-time job, where I helped different
+								teams to maintain and develop some web and mobile applications. I worked primarily with
+								Typescript, Angular and CSS but I also have the chance to use React, Ionic or Node.
+							</Text>
+							<Text mt={4} mb={4}>
+								Following months of hard work, I started focusing on design principles and programming
+								disciplines to write clean, testable and maintainable code which I believed was
+								necessary to keep growing as a professional.
+							</Text>
+							<Text mt={4} mb={4}>
+								It was After almost 2 years I have joined a new company, Emais, where as a Front End
+								Software Engineer I face new challenges. Here I achieved my biggest accomplishment: the
+								migration of the company’s highest-impact product project to a monorepo architecture for
+								source code management. It has been a completely success, providing a much more scalable
+								project, which is also much easier to maintain and work with. After one year working at
+								the company I have been appointed Front-End Team Leader, which means a lot to me. I want
+								to work harder than ever to continue to evolve as a professional.
+							</Text>
+							<Text mt={4} mb={4}>
+								I have also started my own blog where I talk about topics like clean code, UI
+								architecture, performant tools and other stuff regarding front end development.
+							</Text>
+							<Text mt={4} mb={4}>
+								My story will continue.
+							</Text>
 						</div>
 					</div>
 				</div>

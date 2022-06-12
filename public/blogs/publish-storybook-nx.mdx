@@ -1,43 +1,41 @@
 ---
 title: Publish a Storybook with Nx
-date: May 15th 2022
+date: June 10th 2022
 ---
 
 export const meta = {
 	title: "Publish a Storybook with Nx",
-	publishedOn: "May 15th 2022",
+	publishedOn: "June 10th 2022",
 	slug: "publish-storybook-nx",
 };
 
-In this blog I want to show one of the main outcomes I have gotten after being working for several months with Nx. It has saved me lots and lots of time and also give me great support for linting, building or testing my projects.
+In this blog I want to show one of the main outcomes I have gotten after being working for several months with Nx. It has saved me lots and lots of time giving me a great support with tasks like linting or testing.
 
-As a Front-end Engineer I am always trying to learn better ways to optimize test implementantion. I had been struggling a lot with visual testing, as it is challenging not to introduce any visual bug when you are working in a new feature, specially working in components which appear in different UIs of your app. In this cases, you may need to refactorize your code at some point of the development to prevent scability issues.
+I am a Front-end Engineer eager to learn better ways to optimise my tests. For months, I had struggled a lot with visual testing, as it is very challenging not to introduce any visual bugs when you are working in a new feature, specially when extending components which already appear in different UIs of the app. There will be cases when you may need to refactorize your component at some point of the development to prevent scability issues. This is also an important source of bugs.
 
-Catching these kind of bugs is a tremendously ardous task to be perform, so automatization comes as one of the best solutions which can help you to drastically reduce the number of visual bugs introduced in your application.
+Catching these kind of bugs is a tremendously ardous task to be perform, so automatization has come as one of the best solutions for me being very helpful and reducing drastically the number of visual bugs you introduce in the application.
 
-## Stop, please! I have heard about Storybook, but I didn’t know visual testing with this tool could be automated
+## Stop, please! I have heard about Storybook, but I didn’t know it offered automation
 
-As some of you know (don’t worry if you don’t), Storybook is a UI component explorer created for front-end developers. It allows to create UI components in an isolated environment, making easy to introduce tests or improve accesibility. Apart from this, it can be integrated with a bunch of called _add-ons_ which will also help you to improve your documentation or check the level of responsiveness of your application.
+As some of you know (don’t worry if you don’t), Storybook is a UI component explorer created for front-end developers. It allows you to create UI components in an isolated environment, making easy tasks like testing or accessibility checking. Every single isolated environment is call a _story_. Apart from this, you can add a variety of called _add-ons_ which will also help you to improve your documentation or check the level of responsiveness of your application.
 
-One of the best approaches when using Storybook consists of creating a single story for every single state your component can take. My advice is to develop the component first in its most common “default” state with all data present. Then write stories for edge cases like one having no data or with some missing data. After doing this, you can also check the behaviour of the component for different devices (breakpoints) and other aspects regarding the component. As soon as you start working with it, you will feel more confortable, due to the fact that its learning curve is relatively easy.
+One of the best approaches when using Storybook consists of creating a single story for every single state your component can take. My advice is to develop the component first in its most common _default_ state, presenting all the data. Then, you can write different stories for each of the edge cases. Some examples of edge cases are a component without data or missing data. After doing this, you can make different checks to ensure everything works as you wish. Checking the behaviour of the component in different devices (breakpoints) and accessibility grade are usually made to improve the user experience. As soon as you start working with it, you will feel more confident, due to the fact that its learning curve is relatively easy.
 
-They have recently released an [Encyclopedia](https://storybook.js.org/showcase/) where you can find a lot of system designs from recognized companies as Github, Adobe or The Guardian.
+Storybook have recently released an [Encyclopedia](https://storybook.js.org/showcase/) where you can find a lot of System Designs from a variety of recognised companies as Github, Adobe or The Guardian.
 
-The team under Storybook itself has created Chromatic, which will take the responsibility for checking UI changes in your stories, helping you to automate the visual testing job.
+The team under Storybook itself has created Chromatic, which will take the responsibility for checking UI changes in your stories, helping you to automate the visual testing job. We will discuss how you can automate testing in the next section.
 
-Since a while, I am working with Nx from Nrwl as my trusted monorepo management tool. I use it to host all my projects regardless these use one technology or another. Nx has a great support for the prevailing frameworks and libraries, what I truly appreciate. Nx enforces you to introduce good practices, gives you and your team a lot of flexibility and improves code organisation, among other advantages. For me, what I value the most is the development experience thanks to VSCode integration.
+Since a while, I am working with Nx as my trusted monorepo management tool. I use it to host every single one of my projects regardless of the technology they use. Nx has a great support for the prevailing frameworks and libraries, what I truly appreciate. Nx enforces you to introduce good practices, gives you and your team a lot of flexibility and improves code organisation, among other advantages. For me, what I value the most is the development experience thanks to VSCode integration.
 
-## Now, how can we automate visual testing?
+## Now, how can we automate visual tests?
 
-[https://stackoverflow.com/questions/65041989/storybook-angular-nx-workspace-how-to-publish-using-chromatic](https://stackoverflow.com/questions/65041989/storybook-angular-nx-workspace-how-to-publish-using-chromatic)
-
-Maybe you do want to show your great work to your friends or a fellow. If you want to do that and you are not worried about having a proper domain name, you can have your Storybook live after applying some simple steps. It will take you no more than 10 minutes.
+Maybe you do want to show your great work to your friends or a fellow. If you want to do that and you are not worried about having a proper domain name, you can have your Storybook live after doing a few simple steps. It will take you no longer than 10 minutes.
 
 These are the steps you have to follow:
 
-1. Create a new proyect in Chromatic. Chromatic will give you a key you will have to use in the following steps.
-2. Run _build-storybook_ command to generate the bundle. You can do it directly from the Nx console if you have this extension installed (I highly recommend you to install it if you are working with Nx)
-3. Having done that, if you are using one of the last versions from Nx, you have to add a new object under **targets**, in the _project.json_ of your project*,* adding **the **following content:
+1. Create a new project in Chromatic. Chromatic will give you a key you will have to use next .
+2. Run _build-storybook_ command to generate the bundle. You can do it directly from the Nx console if you have this extension installed (I highly recommend you to install for working with Nx)
+3. After having done that, if you are using one of the last versions from Nx, you just have to add a new object under **targets**, in the _project.json_ of your project*,* adding **the **following content:
 
 ```json
 "chromatic": {
@@ -54,10 +52,16 @@ These are the steps you have to follow:
 
 Remember to replace your project token in the second command. Moreover, the bundle generated in the previous step is always located in the _dist_ folder, so you will have to change the dist path, pointing your folder.
 
-The **—auto-acept-changes** flag allows you to accept all the visual changes without reviewing them in detail. I encourage you to remove this option in case you want to approve (or not) every single change detected in a story.
+The **—auto-acept-changes** flag allows you to accept all the visual changes without reviewing them in detail. I encourage you to remove this option in case you want to approve (or not) every single visual change detected between the previous and the actual story.
 
-You will see how you can save a lot of time having only to check those stories that have changed. You can do this process before doing a commit or even less frequently.
+You will see how you can save a lot of time just checking those stories that have changed. If you find an unwanted change or something weird, you can fix the bug in your code and have it corrected in minutes.
 
-## Why do this?
+You can review your changes in Chromatic as many times as you want. For example, I do it before committing, but you can do it even less frequently.
 
-I have run into many cases in which I thought a small change haven’t had any consequences. After a while, a bug appears and after losing some time debugging it you discover it was produced by a previour change. For example, a change in the icon position which I thought only affected side navigation showed me after running Chromatic a change in the accordion component, which I hadn’t notice. In this case, the change was necessary but there are many times where I would have introduced a bug if I weren’t using this automatic tool.
+## Final thoughts
+
+I have run into many cases in which I thought a small change in my code did not cause any bug. Imagine you find out a bug, and you lose some time debugging it. After a while, you discover it was produced by a previous change.
+
+Let’s see a simple example. You change the arrow of an icon (svg) which I thought only affected side navigation showed me after running Chromatic a change in the accordion component, which I hadn’t notice. Running Chromatic, I have avoided the introduction of a bug, or at least reviewed that the change was intentional.
+
+There are plenty of examples like this and Storybook along with Chromatic can be very helped to avoid having to check every story individually.

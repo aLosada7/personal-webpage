@@ -1,27 +1,34 @@
 import Link from "next/link";
+
+import { Text, Title } from "dana-react";
+
 import HomeHeader from "../components/layout/HomeHeader";
 import Layout from "../components/layout/Layout";
 
 export default function Home() {
 	return (
 		<Layout>
-			<HomeHeader></HomeHeader>
+			<HomeHeader />
 			<section className="page-section">
 				<div className="container about">
 					<div className="row">
 						<div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
 							<div className="about-left">
-								<h3 className="page-title mb-16">Hey, I'm Alvaro.</h3>
+								<Title size="h3" mt={8} mb={8}>
+									Hey, I'm Alvaro.
+								</Title>
 								<div className="text mt-16 mb-16">
-									<p className="color-light-black line-150">
-										I’m a software engineer living and working in Asturias. I work daily on building
-										better and elegant software through writing clean, testable and maintainable
-										code.
-									</p>
+									<Text mt={4} mb={4} color="rgba(0, 0, 0, .65)">
+										I’m a Front-End Engineer living and working in León, Spain.
+									</Text>
+									<Text mt={4} mb={4} color="rgba(0, 0, 0, .65)">
+										I work daily on building better and elegant software through writing clean,
+										testable and maintainable code.
+									</Text>
 								</div>
 								<div className="button-wrrapper mt-xxs mb-xxs">
 									<Link href="/about">
-										<a role="link" className="button green-button">
+										<a role="link" className="button buttons-common grey-button">
 											Learn More
 										</a>
 									</Link>
@@ -30,7 +37,7 @@ export default function Home() {
 						</div>
 						<div className="col-8 col-mobile-24 col-offset-mobile-0">
 							<div className="about-img-wrapper">
-								<img src="/alvaro.jpeg" alt="Alvaro profile picture" />
+								<img src="/alvaro.jpg" alt="Alvaro profile picture" />
 							</div>
 						</div>
 					</div>

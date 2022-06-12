@@ -4,7 +4,7 @@
         "description": "Use Nx to create scalable applications with a testable architecture",
         "slug": "nx-help-architecture",
         "tags": ["Nx"],
-        "date": "May 15th 2022"
+        "date": "June 10th 2022"
     },
     {
         "id": 2,
@@ -20,15 +20,15 @@
         "description": "Deploy your storybook online at the same time you introduce automatic visual testing",
         "slug": "publish-storybook-nx",
         "tags": ["Nx"],
-        "date": "May 15th 2022"
+        "date": "June 10th 2022"
     },
     {
         "id": 4,
-        "headline": "Creating a radio group reusable component",
-        "description": "The key trick for creating rich radio groups",
+        "headline": "Building a simple and reusable Radio Group component with React",
+        "description": "A key trick for creating rich radio groups",
         "slug": "radio-group",
         "tags": ["React"],
-        "date": "June 1th 2022"
+        "date": "June 10th 2022"
     }
 
 ]

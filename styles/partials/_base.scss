@@ -13,6 +13,18 @@ d-flex {
     display: flex;
 }
 
+.buttons-common {
+    width: fit-content;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 0.785rem;
+    font-weight: 600;
+    box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
+    margin-bottom: 1rem;
+    border: none;
+}
+
 // section
 .page-section {
     width: 100%;
@@ -29,7 +41,6 @@ d-flex {
 
     // buttons
     .button {
-        margin: 1rem 0.5rem;
         align-items: center;
         border: 1px solid rgb(229, 229, 229);
         border-radius: 2px;
@@ -40,6 +51,10 @@ d-flex {
         cursor: pointer;
         border-radius: 5px;
         line-height: 20px;
+
+        &__wrap {
+            margin: 0.5rem;
+        }
     }
 
     .no-wrap {
@@ -50,28 +65,18 @@ d-flex {
 
     .green-button {
         background: rgb(35, 195, 143);
-        width: fit-content;
-        margin: 1rem 0;
         color: rgba(255, 255, 255, 0.99);
-        text-transform: uppercase;
-        letter-spacing: 1.4px;
-        font-size: 0.785rem;
-        font-weight: 600;
-        box-shadow: 2px 2px 50px rgb(0 0 0 / 15%);
-        margin-bottom: 1rem;
-        border: none;
+    }
+
+    .grey-button {
+        background: #485963;
+        color: rgba(255, 255, 255, 0.99);
     }
 
     .white-button {
         background-color: rgb(255, 255, 255);
         color: rgb(155, 155, 155);
     }
-
-    .active-white-button {
-        background-color: rgb(35, 195, 143);
-        color: hsla(0, 0%, 100%, .99);
-    }
-
 }
 
 .page-section.first-section {
