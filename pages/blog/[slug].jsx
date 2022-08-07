@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 
-import { Container, Text } from "dana-react";
+import { Container, Text } from "@edene/components";
 
 import getPost from "../api/getPost";
 import Layout from "../../components/layout/Layout";
@@ -8,6 +8,8 @@ import PostContent from "../../components/blog/PostContent";
 
 export default function BlogItem({ siteTitle, frontmatter, markdownBody }) {
 	if (!frontmatter) return <></>;
+
+	console.log(markdownBody);
 
 	return (
 		<Layout pageTitle={`${siteTitle}`}>

@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { Title, Text, Image } from "dana-react";
+import { Title, Text, Image } from "@edene/components";
+
 import CodeBlock from "./CodeBlock";
 
 const H2Title = (props) => <Title size="h3" mt={8} {...props} />;

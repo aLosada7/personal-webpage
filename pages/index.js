@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Text, Title } from "dana-react";
+import { Text, Title } from "@edene/components";
 
 import HomeHeader from "../components/layout/HomeHeader";
 import Layout from "../components/layout/Layout";

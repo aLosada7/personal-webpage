@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-import { Text } from "dana-react";
+import { Text } from "@edene/components";
 
 import Layout from "../components/layout/Layout";
 

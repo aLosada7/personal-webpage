@@ -1,20 +1,21 @@
 import Link from "next/link";
+import { css } from "@emotion/react";
+import { useState, useEffect } from "react";
+
 import {
-	until,
 	Container,
 	Row,
 	Col,
 	Badge,
 	Text,
-	SideNav,
-	SideNavItems,
-	SideNavPrincipal,
-	SideNavItem,
+	// SideNav,
+	// SideNavItems,
+	// SideNavPrincipal,
+	// SideNavItem,
 	Image,
 	Title,
-} from "dana-react";
-import { css } from "@emotion/react";
-import { useState, useEffect } from "react";
+} from "@edene/components";
+import { until } from "@edene/foundations";
 
 import Layout from "../components/layout/Layout";
 import blogs from "../blogs.json";
@@ -209,8 +210,8 @@ export default function Blog() {
 					<Title size="h4" mb={4}>
 						All blog posts
 					</Title>
-					<Row>
-						<Col md={8} lg={6}>
+					{/*<Row>
+						 <Col md={8} lg={6}>
 							<SideNav aria-label="Side navigation">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
 									<SideNavPrincipal title="Blog categories">
@@ -235,14 +236,14 @@ export default function Blog() {
 								</SideNavItems>
 							</SideNav>
 						</Col>
-						<Col md={16} lg={18}>
-							<Row>
-								{blogsFiltered.reverse().map((blog) => (
-									<BlogAllSection blog={blog} key={blog.slug} />
-								))}
-							</Row>
-						</Col>
+						<Col md={16} lg={18}> */}
+					<Row>
+						{blogsFiltered.reverse().map((blog) => (
+							<BlogAllSection blog={blog} key={blog.slug} />
+						))}
 					</Row>
+					{/* </Col>
+					</Row> */}
 				</Container>
 			</section>
 		</Layout>
