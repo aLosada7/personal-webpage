@@ -24,9 +24,6 @@ const MobileMenuHeader = ({ mainPage, mobileMenuOpen }) => {
 				<a href="https://github.com/aLosada7" target="_blank">
 					<img src="/github.svg" alt="My github page" />
 				</a>
-				<a href="https://codepen.io/alosada7" target="_blank">
-					<img src="/codepen.svg" alt="My codepen page" />
-				</a>
 			</div>
 		</header>
 	);

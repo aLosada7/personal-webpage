@@ -29,6 +29,17 @@ const Navbar = ({ menu }) => {
 						</Link>
 					</li>
 					<li className="nav-item">
+						<a
+							href="https://edene.netlify.app/"
+							target="_blank"
+							role="link"
+							aria-label="edene"
+							className="nav-link"
+						>
+							Edene
+						</a>
+					</li>
+					<li className="nav-item">
 						<Link href="/about">
 							<a role="link" aria-label="about" className="nav-link">
 								About
@@ -42,13 +53,13 @@ const Navbar = ({ menu }) => {
 							</a>
 						</Link>
 					</li>
-					<li className="nav-item">
+					{/* <li className="nav-item">
 						<Link href="/contribution">
 							<a role="link" aria-label="contribution" className="nav-link">
 								Contribution
 							</a>
 						</Link>
-					</li>
+					</li> */}
 					<li className="nav-item">
 						<Link href="/contact">
 							<a role="link" aria-label="contact" className="nav-link">
