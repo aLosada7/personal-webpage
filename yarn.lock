@@ -63,15 +63,20 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@edene/components@^0.0.6":
+"@edene/components@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@edene/components/-/components-0.0.6.tgz#21295332c8473b4b54f81072ac1b4f8a18cad79f"
   integrity sha512-V35HewI4EriDGIeTwoCdlJNEQMXOVumqlPqWYM4VhlmW9laydWT1ES4F44A9HPSeAeqEj9mj8hSgnDbtAYNVKA==
 
-"@edene/foundations@^0.0.4":
+"@edene/foundations@0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@edene/foundations/-/foundations-0.0.4.tgz#0f1e1d80f4a40b777ea98ff7c939c6714a50118a"
   integrity sha512-fnZ7eFSCMPj63Ssa231weyYMvkgDXUBNZYmHLaMOyCTA3yEvAQzaTYuCcfh5+NNwPp+pPbnmscTOFhbmZZZqug==
+
+"@edene/hooks@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@edene/hooks/-/hooks-0.0.1.tgz#29709782921986e5c131b6fe22acb862d1879bce"
+  integrity sha512-y7lqfwbSLsNxU8DRQ8hAzyZtDc24JOlx9MeNFWCsoxUVHOB/EEbh6KhTqtlPOqwqzkdXgAgeHnOyH/RlvjrcFA==
 
 "@emotion/babel-plugin@^11.10.0":
   version "11.10.0"
@@ -119,7 +124,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.0.tgz#f580f9beb67176fa57aae70b08ed510e1b18980f"
   integrity sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==
 
-"@emotion/react@^11.10.0":
+"@emotion/react@11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.10.0.tgz#53c577f063f26493f68a05188fb87528d912ff2e"
   integrity sha512-K6z9zlHxxBXwN8TcpwBKcEsBsOw4JWCCmR+BeeOWgqp8GIU1yA2Odd41bwdAAr0ssbQrbJbVnndvv7oiv1bZeQ==
@@ -148,7 +153,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.2.0.tgz#771b1987855839e214fc1741bde43089397f7be5"
   integrity sha512-OiTkRgpxescko+M51tZsMq7Puu/KP55wMT8BgpcXVG2hqXc0Vo0mfymJ/Uj24Hp0i083ji/o0aLddh08UEjq8w==
 
-"@emotion/styled@^11.10.0":
+"@emotion/styled@11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-11.10.0.tgz#c19484dab4206ae46727c07efb4316423dd21312"
   integrity sha512-V9oaEH6V4KePeQpgUE83i8ht+4Ri3E8Djp/ZPJ4DQlqWhSKITvgzlR3/YQE2hdfP4Jw3qVRkANJz01LLqK9/TA==

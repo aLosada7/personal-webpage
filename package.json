@@ -8,10 +8,11 @@
         "start": "next start"
     },
     "dependencies": {
-        "@edene/components": "^0.0.6",
-        "@edene/foundations": "^0.0.4",
-        "@emotion/react": "^11.10.0",
-        "@emotion/styled": "^11.10.0",
+        "@edene/components": "0.0.6",
+        "@edene/foundations": "0.0.4",
+        "@edene/hooks": "0.0.1",
+        "@emotion/react": "11.10.0",
+        "@emotion/styled": "11.10.0",
         "@mdx-js/loader": "2.0.0-rc.2",
         "@mdx-js/react": "2.0.0-rc.2",
         "@netlify/plugin-nextjs": "4.7.0",
