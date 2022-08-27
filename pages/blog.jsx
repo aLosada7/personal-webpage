@@ -8,10 +8,10 @@ import {
 	Col,
 	Badge,
 	Text,
-	// SideNav,
-	// SideNavItems,
-	// SideNavPrincipal,
-	// SideNavItem,
+	SideNav,
+	SideNavItems,
+	SideNavPrincipal,
+	SideNavItem,
 	Image,
 	Title,
 } from "@edene/components";
@@ -19,6 +19,20 @@ import { until } from "@edene/foundations";
 
 import Layout from "../components/layout/Layout";
 import blogs from "../blogs.json";
+
+const noPadding = css`
+	padding: 0;
+`;
+
+const noMargin = css`
+	margin: 0;
+`;
+
+const colorBlack = css`
+	span {
+		color: black;
+	}
+`;
 
 const Tags = ({ tags }) => {
 	return (
@@ -210,40 +224,43 @@ export default function Blog() {
 					<Title size="h4" mb={4}>
 						All blog posts
 					</Title>
-					{/*<Row>
-						 <Col md={8} lg={6}>
-							<SideNav aria-label="Side navigation">
+					<Row>
+						<Col md={8} lg={6} cssOverrides={noPadding}>
+							<SideNav aria-label="Side navigation" mobileWidth="full">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
-									<SideNavPrincipal title="Blog categories">
-										{blogCategories.map((category) => (
-											<SideNavItem
-												key={category.slug}
-												isActive={category === activeBlogCategory}
-												onClick={() => setActiveBlogCategory(category)}
-												// badge={<Badge color="gray" text="3" />}
-												cssOverrides={css`
-													border-radius: 8px;
+									<SideNavPrincipal title="Blog categories" cssOverrides={[noMargin, colorBlack]}>
+										{blogCategories.map((category) => {
+											console.log(category === activeBlogCategory);
+											return (
+												<SideNavItem
+													key={category.slug}
+													isActive={category === activeBlogCategory}
+													onClick={() => setActiveBlogCategory(category)}
+													// badge={<Badge color="gray" text="3" />}
+													cssOverrides={css`
+														border-radius: 8px;
 
-													:last-child {
-														margin-bottom: 0.7rem;
-													}
-												`}
-											>
-												{category}
-											</SideNavItem>
-										))}
+														:last-child {
+															margin-bottom: 0.7rem;
+														}
+													`}
+												>
+													{category}
+												</SideNavItem>
+											);
+										})}
 									</SideNavPrincipal>
 								</SideNavItems>
 							</SideNav>
 						</Col>
-						<Col md={16} lg={18}> */}
-					<Row>
-						{blogsFiltered.reverse().map((blog) => (
-							<BlogAllSection blog={blog} key={blog.slug} />
-						))}
+						<Col md={16} lg={18}>
+							<Row>
+								{blogsFiltered.reverse().map((blog) => (
+									<BlogAllSection blog={blog} key={blog.slug} />
+								))}
+							</Row>
+						</Col>
 					</Row>
-					{/* </Col>
-					</Row> */}
 				</Container>
 			</section>
 		</Layout>
