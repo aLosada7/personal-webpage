@@ -41,11 +41,12 @@ const Tags = ({ tags }) => {
 				<Badge
 					key={tag}
 					color="gray"
-					text={tag}
 					cssOverrides={css`
 						margin-top: 0.5rem;
 					`}
-				/>
+				>
+					{tag}
+				</Badge>
 			))}
 		</>
 	);
