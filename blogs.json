@@ -29,6 +29,13 @@
         "slug": "radio-group",
         "tags": ["React"],
         "date": "June 10th 2022"
+    },
+    {
+        "id": 5,
+        "headline": "Building Edene I",
+        "description": "Nx, the key which gave me the consistency I needed",
+        "slug": "edene-i",
+        "tags": ["React", "Nx"],
+        "date": "September 20th 2022"
     }
-
 ]
