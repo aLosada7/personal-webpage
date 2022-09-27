@@ -45,5 +45,13 @@
         "slug": "virtualization-i",
         "tags": ["React", "Optimization"],
         "date": "September 22th 2022"
+    },
+    {
+        "id": 7,
+        "headline": "Debugging CSS in Storybook without DevTools",
+        "description": "Three addons that will save you some time when debugging your application",
+        "slug": "devtools-storybook",
+        "tags": ["React", "CSS"],
+        "date": "September 27th 2022"
     }
 ]
