@@ -37,5 +37,13 @@
         "slug": "edene-i",
         "tags": ["React", "Nx"],
         "date": "September 20th 2022"
+    },
+    {
+        "id": 6,
+        "headline": "Virtualization I",
+        "description": "Efficient list rendering in React",
+        "slug": "virtualization-i",
+        "tags": ["React", "Optimization"],
+        "date": "September 22th 2022"
     }
 ]
