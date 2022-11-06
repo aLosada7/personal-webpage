@@ -128,7 +128,7 @@ const BlogAllSection = ({ blog }) => {
 		>
 			<Link href={{ pathname: `/blog/${blog.slug}` }}>
 				<article>
-					<Image src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
+					<Image size="d" src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
 					<Text size="xxsm" mt={2}>
 						{blog.date}
 					</Text>
