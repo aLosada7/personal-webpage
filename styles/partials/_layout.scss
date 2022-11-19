@@ -86,6 +86,10 @@
 .mainmenu {
     color: white;
 
+    .menu a::before {
+        background-color: #fff;
+    }
+
     img {
         @include invertColors;
     }

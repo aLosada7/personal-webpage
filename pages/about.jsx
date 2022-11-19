@@ -20,7 +20,11 @@ export default function About() {
 				<div className="container about">
 					<div className="row">
 						<div className="col-12 col-mobile-24 col-offset-mobile-0">
-							<img src="/aboutPhoto.jpg" style={{ width: "-webkit-fill-available" }} />
+							<img
+								src="/aboutPhoto.webp"
+								alt="Photo of Alvaro working in Visual Studio Code"
+								style={{ width: "-webkit-fill-available" }}
+							/>
 						</div>
 						<div className="col-12 col-mobile-24 col-offset-mobile-0">
 							<Text mt={4} mb={4}>

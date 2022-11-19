@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
 
 import { Text, Title } from "@edene/components";
 
@@ -8,6 +10,15 @@ import Layout from "../components/layout/Layout";
 export default function Home() {
 	return (
 		<Layout>
+			<Head>
+				<html lang="en" />
+				<title>Alvaro Losada</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="This is the official website of Alvaro Losada. Alvaro Losada is a Front End Engineer who works at eDreams ODIGEO."
+				></meta>
+			</Head>
 			<HomeHeader />
 			<section className="page-section">
 				<div className="container about">
@@ -37,7 +48,7 @@ export default function Home() {
 						</div>
 						<div className="col-8 col-mobile-24 col-offset-mobile-0">
 							<div className="about-img-wrapper">
-								<img src="/alvaro.jpg" alt="Alvaro profile picture" />
+								<Image src="/alvaro.webp" width="280" height="375" alt="Alvaro profile picture" />
 							</div>
 						</div>
 					</div>
