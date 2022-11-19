@@ -1,0 +1,197 @@
+---
+title: Creating your own library of components. An Alert component
+date: Nov 19th 2022
+---
+
+export const meta = {
+	title: "Creating your own library of components. An Alert component",
+	publishedOn: "Nov 19th 2022",
+	slug: "components-i",
+};
+
+An alert basically displays a short important message and optionally several actions that can be taken. Its main purpose is attracting the user’s attention without interrupting the user’s task.
+
+## Base component
+
+The most basic alert just shows a text inside a dialog box. Let’s create a basic alert using a _div_ and the _Text_ component
+
+```tsx
+import { ReactNode } from "react";
+import { css } from "@emotion/react";
+
+import { Props, textSans } from "@edene/foundations";
+import { Text } from "@edene/components";
+
+const alert = css`
+	font-family: Lato, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 400;
+	background-color: #e1f9f5;
+	color: rgb(48, 144, 142);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+`;
+
+export interface AlertProps extends Props {
+	children: ReactNode;
+}
+
+export const Alert = (props: AlertProps) => (
+	<div
+		role="alert"
+		css={alert}
+		{...props} // necessary to override other props as className
+	>
+		<Text>{props.children}</Text>
+	</div>
+);
+```
+
+> Remember that the _role_ attribute helps the browser to decide about sending an accesible event to assistive technology products.
+
+The *alert* role is used to communicate an important and usually time-sensitive message to the user. The _css_ attribute comes from _Emotion_.
+
+```tsx
+<Alert>Alert</Alert>
+```
+
+![Basic alert](/blogs/components-i/alert2.png)
+
+It’s time to introduce an action. The action has to be linked with the alert. The most common actions are dismissing, linking to another page or lifting a modal box.
+
+```tsx
+import { ReactNode } from "react";
+import { css } from "@emotion/react";
+
+import { Props, textSans } from "@edene/foundations";
+import { Text } from "@edene/components";
+
+const alert = css`
+	font-family: Lato, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 400;
+	background-color: #e1f9f5;
+	color: rgb(48, 144, 142);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+`;
+
+export const alertActions = css`
+	display: grid;
+`;
+
+export interface AlertProps extends Props {
+	actions?: ReactNode;
+	children: ReactNode;
+}
+
+export const Alert = (props: AlertProps) => (
+	<div role="alert" css={alert} {...props}>
+		<Text>{props.children}</Text>
+		{props.actions && <div css={alertActions}>{props.actions}</div>}
+	</div>
+);
+```
+
+```tsx
+<Alert
+	actions={
+		<Button variant="link" color="success">
+			Dismiss
+		</Button>
+	}
+>
+	This is an alert with a dismiss button
+</Alert>
+```
+
+![Alert with an action](/blogs/components-i/alert2.png)
+
+Lastly, it might be useful to define different types of alerts. Apart from the positive/success one, we can have different colors for informative and danger alerts (it could be others). In order to archieve this, we will define a new property for the component. Depending its value, we will be basically applying different styles for both the text and background colors.
+
+Here is the final implementation of the component.
+
+```tsx
+import { ReactNode } from "react";
+import { css } from "@emotion/react";
+
+import { Text } from "@edene/components";
+
+const alert = (type: "success" | "info" | "danger") => css`
+		font-family: Lato,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+		~~background-color: #E1F9F5;
+    color: rgb(48, 144, 142);~~
+		${
+			type === "success" &&
+			`background-color: #E1F9F5;
+		    color: rgb(48, 144, 142);`
+		}
+		${
+			type === "info" &&
+			`background-color: #EBF6FA;
+		    color: #2A789A;`
+		}
+    ${
+		type === "danger" &&
+		`background-color: #f8d7da;
+		    color: #DC3545;`
+	}
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+`;
+
+export const alertActions = css`
+	display: grid;
+`;
+
+export interface AlertProps {
+	type: "success" | "info" | "danger";
+	actions?: ReactNode;
+	children: ReactNode;
+}
+
+export const Alert = (props: AlertProps) => (
+	<div role="alert" css={alert(props.type)} {...props}>
+		<Text>{props.children}</Text>
+		{props.actions && <div css={alertActions}>{props.actions}</div>}
+	</div>
+);
+```
+
+Here is the end use and the result.
+
+```tsx
+<>
+	<Alert type="success">This is a success alert</Alert>
+	<Alert type="info">This is a danger alert</Alert>
+	<Alert type="danger">This is a danger alert</Alert>
+</>
+```
+
+![Different alerts with types](/blogs/components-i/alert3.png)

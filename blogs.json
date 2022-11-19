@@ -43,7 +43,7 @@
         "headline": "Virtualization I",
         "description": "Efficient list rendering in React",
         "slug": "virtualization-i",
-        "tags": ["React", "Optimization"],
+        "tags": ["React", "Performance"],
         "date": "September 22th 2022"
     },
     {
@@ -53,5 +53,13 @@
         "slug": "devtools-storybook",
         "tags": ["React", "CSS"],
         "date": "September 27th 2022"
+    },
+    {
+        "id": 8,
+        "headline": "Creating your own library of components. An Alert component",
+        "description": "This is a new series of blogs about how to create different reusable components in React. The first one is an alert",
+        "slug": "components-i",
+        "tags": ["React"],
+        "date": "November 19th 2022"
     }
 ]
