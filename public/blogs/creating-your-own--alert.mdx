@@ -6,7 +6,7 @@ date: Nov 19th 2022
 export const meta = {
 	title: "Creating your own library of components. An Alert component",
 	publishedOn: "Nov 19th 2022",
-	slug: "components-i",
+	slug: "creating-your-own--alert",
 };
 
 An alert basically displays a short important message and optionally several actions that can be taken. Its main purpose is attracting the user’s attention without interrupting the user’s task.
@@ -63,7 +63,7 @@ The *alert* role is used to communicate an important and usually time-sensitive
 <Alert>Alert</Alert>
 ```
 
-![Basic alert](/blogs/components-i/alert2.png)
+![Basic alert](/blogs/creating-your-own--alert/alert2.webp)
 
 It’s time to introduce an action. The action has to be linked with the alert. The most common actions are dismissing, linking to another page or lifting a modal box.
 
@@ -121,7 +121,7 @@ export const Alert = (props: AlertProps) => (
 </Alert>
 ```
 
-![Alert with an action](/blogs/components-i/alert2.png)
+![Alert with an action](/blogs/creating-your-own--alert/alert2.webp)
 
 Lastly, it might be useful to define different types of alerts. Apart from the positive/success one, we can have different colors for informative and danger alerts (it could be others). In order to archieve this, we will define a new property for the component. Depending its value, we will be basically applying different styles for both the text and background colors.
 
@@ -134,36 +134,28 @@ import { css } from "@emotion/react";
 import { Text } from "@edene/components";
 
 const alert = (type: "success" | "info" | "danger") => css`
-		font-family: Lato,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    font-weight: 400;
-		~~background-color: #E1F9F5;
-    color: rgb(48, 144, 142);~~
-		${
-			type === "success" &&
-			`background-color: #E1F9F5;
-		    color: rgb(48, 144, 142);`
-		}
-		${
-			type === "info" &&
-			`background-color: #EBF6FA;
-		    color: #2A789A;`
-		}
-    ${
-		type === "danger" &&
-		`background-color: #f8d7da;
-		    color: #DC3545;`
-	}
+	font-family: Lato, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 400;
+	${type === "success" &&
+	`background-color: #E1F9F5;
+        color: rgb(48, 144, 142);`}
+	${type === "info" &&
+	`background-color: #EBF6FA;
+        color: #2A789A;`}
+    ${type === "danger" &&
+	`background-color: #f8d7da;
+		    color: #DC3545;`}
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+	justify-content: space-between;
+	align-items: center;
 
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
 `;
 
 export const alertActions = css`
@@ -194,4 +186,4 @@ Here is the end use and the result.
 </>
 ```
 
-![Different alerts with types](/blogs/components-i/alert3.png)
+![Different alerts with types](/blogs/creating-your-own--alert/alert3.webp)
