@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "./Navbar";
@@ -17,10 +18,10 @@ const DesktopMenuHeader = ({ mainPage }) => {
 				<Navbar menu="menu" />
 				<div className="social-networks-wrapper">
 					<a href="https://www.linkedin.com/in/alvarolosadadecastro/" target="_blank">
-						<img src="/linkedin.svg" alt="My linkedin page" />
+						<Image src="/linkedin.svg" width="18" height="18" alt="My linkedin page" />
 					</a>
 					<a href="https://github.com/aLosada7" target="_blank">
-						<img src="/github.svg" alt="My github page" />
+						<Image src="/github.svg" width="18" height="18" alt="My github page" />
 					</a>
 				</div>
 			</div>

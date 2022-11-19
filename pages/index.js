@@ -13,7 +13,7 @@ export default function Home() {
 			<Head>
 				<html lang="en" />
 				<title>Alvaro Losada</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta
 					name="description"
 					content="This is the official website of Alvaro Losada. Alvaro Losada is a Front End Engineer who works at eDreams ODIGEO."
@@ -29,10 +29,10 @@ export default function Home() {
 									Hey, I'm Alvaro.
 								</Title>
 								<div className="text mt-16 mb-16">
-									<Text mt={4} mb={4} color="rgba(0, 0, 0, .65)">
+									<Text mt={4} mb={4}>
 										I’m a Front-End Engineer living and working in León, Spain.
 									</Text>
-									<Text mt={4} mb={4} color="rgba(0, 0, 0, .65)">
+									<Text mt={4} mb={4}>
 										I work daily on building better and elegant software through writing clean,
 										testable and maintainable code.
 									</Text>

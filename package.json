@@ -15,7 +15,7 @@
         "@emotion/styled": "11.10.0",
         "@mdx-js/loader": "2.0.0-rc.2",
         "@mdx-js/react": "2.0.0-rc.2",
-        "@netlify/plugin-nextjs": "4.7.0",
+        "@netlify/plugin-nextjs": "^4.29.1",
         "@next/mdx": "12.1.6",
         "@types/react": "18.0.16",
         "axios": "0.21.1",

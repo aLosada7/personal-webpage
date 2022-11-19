@@ -16,7 +16,7 @@ const Navbar = ({ menu }) => {
 	);
 
 	const navList = (
-		<nav role="nav" aria-label="Desktop Navigation">
+		<nav role="navigation" aria-label="Desktop Navigation">
 			{showContentItems ? (
 				<div className="nav-menu-content">{contentsList}</div>
 			) : (
