@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
+
 import ContributionItem from "../components/contribution/ContributionItem";
 import Layout from "../components/layout/Layout";
-import { useEffect, useState } from "react";
 import contributions from "../contributions.json";
+import Head from "../components/seo/Head";
 
 export default function Contribution() {
 	const [technologySelected, setTechnologySelected] = useState("All");
@@ -39,6 +41,7 @@ export default function Contribution() {
 
 	return (
 		<Layout>
+			<Head title="Contribution - Alvaro Losada" />
 			<section className="page-section first-section">
 				<div className="container">
 					<div className="row">

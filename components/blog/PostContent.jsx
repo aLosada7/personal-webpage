@@ -1,14 +1,14 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { Title, Text, Image } from "@edene/components";
+import { Heading, Text, Image } from "@edene/components";
 
 import CodeBlock from "./CodeBlock";
 
-const H2Title = (props) => <Title size="h3" mt={8} {...props} />;
+const H2Heading = (props) => <Heading size="h2" mt={8} {...props} />;
 const PText = (props) => <Text mt={4} {...props} />;
 
 const components = {
-	h2: H2Title,
+	h2: H2Heading,
 	p: PText,
 	pre: (props) => <div {...props} />,
 	code: CodeBlock,

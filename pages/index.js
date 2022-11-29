@@ -1,33 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 
-import { Text, Title } from "@edene/components";
+import { Text, Heading } from "@edene/components";
 
 import HomeHeader from "../components/layout/HomeHeader";
 import Layout from "../components/layout/Layout";
+import Head from "../components/seo/Head";
 
 export default function Home() {
 	return (
 		<Layout>
-			<Head>
-				<html lang="en" />
-				<title>Alvaro Losada</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<meta
-					name="description"
-					content="This is the official website of Alvaro Losada. Alvaro Losada is a Front End Engineer who works at eDreams ODIGEO."
-				></meta>
-			</Head>
+			<Head title="Alvaro Losada" />
 			<HomeHeader />
 			<section className="page-section">
 				<div className="container about">
 					<div className="row">
 						<div className="col-8 col-offset-4 col-mobile-24 col-offset-mobile-0">
 							<div className="about-left">
-								<Title size="h3" mt={8} mb={8}>
+								<Heading size="h3" mt={8} mb={8}>
 									Hey, I'm Alvaro.
-								</Title>
+								</Heading>
 								<div className="text mt-16 mb-16">
 									<Text mt={4} mb={4}>
 										I’m a Front-End Engineer living and working in León, Spain.

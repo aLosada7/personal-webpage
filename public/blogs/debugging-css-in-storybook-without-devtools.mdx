@@ -1,0 +1,161 @@
+---
+title: Debugging CSS in Storybook without DevTools
+date: September 27th 2022
+description: Three addons that will save you some time when debugging your application
+slug: debugging-css-in-storybook-without-devtools
+---
+
+In the last months, I have developed a special interest in **Design Systems**. Design Systems are now part of my web development carrer so I am continously reading different articles and following companies at the forefront to learn as much as I can.
+
+[Storybook](https://storybook.js.org/) team has worked a lot on simplifying programmers life when developing component libraries. Storybook is an open source library for building UI components and pages in isolation. Their library is really good easing documentation, UI development and testing tasks. For developers, all are advantages. But among all the benefits, I want to underline the potential benefits to non-technical contributors, and how this can be a key to turning an idea or business requirement into a fully functional feature which can be followed by everyone interested.
+
+In this post I want to address one particular aspect. Developers, particulary web developers, open and close the DevTools hundreds of times a day. Maybe you did not know Storybook can help you to avoid some of them.
+
+## Interesting addons to reduce DevTools dependency
+
+Reduce the ardous task of opening the DevTools, inspecting an element or traversing the DOM is now possible thanks to Storybook.
+
+We are going to talk about three different utilties in this blog. The first thing you have to do is to install these three addons as **dev dependencies** and then add them to your _.storybook/main.js_ file.
+
+```json
+{
+...
+	addons: [
+		...,
+		'@storybook/addon-measure',
+		'@storybook/addon/outline',
+		'@storybook/addon-viewport',
+		...
+	]
+...
+}
+```
+
+Once you start Storybook, the three of them can be found on the toolbar.
+
+![Addons in Storybook](/blogs/debugging-css-in-storybook-without-devtools/schema.webp)
+
+## Measure tool
+
+Helpful when you wanna take a look at the content area, padding or margin values. With this add-on you get a visual representation with the specific values. It has a lot of similarities with DevTools inspection. You will be saving time when assuring proper spacing and margin values are increments of 8 (this is recommended to create web designs, but also sometimes using 4 points) or to align your elements.
+
+![Measure tool I](/blogs/debugging-css-in-storybook-without-devtools/measure.webp)
+
+![Measure tool II](/blogs/debugging-css-in-storybook-without-devtools/spacing-margin.webp)
+
+## Outline tool
+
+It helps you visualize the flow of your content, relationships between elements. The way it works is very simple, drawing different outlines around every single element in the preview panel (canvas).
+
+I use it mainly as part of my **visual tests**. Visual testing catches bugs as cut-off elements, incorrect font-styles or broken layouts.
+
+![Outline](/blogs/debugging-css-in-storybook-without-devtools/outline.webp)
+
+## Viewport tool
+
+This tool is very similar to the built-in responsive view in Dev Tools, but directly integrated in Storybook. Moreover, using this add-on you won’t need to resize your stories so they wwill never be reloaded.
+
+There is a default number of viewports defined (mobile, desktop, tablet), but this is totally customizable so you can add as many viewports as you want.
+
+![Viewport tool](/blogs/debugging-css-in-storybook-without-devtools/viewport.webp)
+
+You can define this in your preview. I have several custom viewports defined which I use for every project I work in.
+
+```tsx
+export type Breakpoint =
+	| "mobile"
+	| "mobileMedium"
+	| "mobileLandscape"
+	| "phablet"
+	| "tablet"
+	| "desktop"
+	| "leftCol"
+	| "wide";
+
+export const breakpoints: Record<Breakpoint, number> = {
+	mobile: 320,
+	mobileMedium: 375,
+	mobileLandscape: 480,
+	phablet: 660,
+	tablet: 768,
+	desktop: 980,
+	leftCol: 1140,
+	wide: 1300,
+};
+
+// preview.ts
+type ViewportMeta = {
+	[key in Breakpoint]: {
+		name: string;
+		type: string;
+	};
+};
+
+const viewportMeta: ViewportMeta | any = {
+	mobile: {
+		name: "Mobile",
+		type: "mobile",
+	},
+	mobileMedium: {
+		name: "Mobile Medium",
+		type: "mobile",
+	},
+	mobileLandscape: {
+		name: "Mobile Landscape",
+		type: "mobile",
+	},
+	phablet: {
+		name: "Phablet",
+		type: "mobile",
+	},
+	tablet: {
+		name: "Tablet",
+		type: "tablet",
+	},
+	desktop: {
+		name: "Desktop",
+		type: "desktop",
+	},
+	leftCol: {
+		name: "Left Col",
+		type: "desktop",
+	},
+	wide: {
+		name: "Wide",
+		type: "desktop",
+	},
+};
+
+const viewportEntries = Object.entries(breakpoints).map(([name, width]) => {
+	return [
+		name,
+		{
+			name: viewportMeta[name].name,
+			styles: {
+				width: `${width}px`,
+				height: "100%",
+				padding: "0",
+			},
+			type: viewportMeta[name].type,
+		},
+	];
+});
+
+// viewport object
+const viewport = {
+	viewports: {
+		...Object.fromEntries(viewportEntries),
+	},
+};
+
+// export viewport as parameters
+export const parameters = {
+	viewport,
+};
+```
+
+## Final words
+
+These add-ons are very helpful to reduce the time it takes to open and close DevTools, select and element in the page and inspect it or toggle device toolbar. I invested time when I was working on the interface of my blog that is now live on my [website](https://alvarolosada.com/blog).
+
+You can check out Edene Storybook and try these add-ons [here](https://master--62ed74f612c78f7bbe13743e.chromatic.com).

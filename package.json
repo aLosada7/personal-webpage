@@ -8,9 +8,8 @@
         "start": "next start"
     },
     "dependencies": {
-        "@edene/components": "0.0.6",
-        "@edene/foundations": "0.0.4",
-        "@edene/hooks": "0.0.1",
+        "@edene/components": "0.0.12",
+        "@edene/foundations": "0.0.10",
         "@emotion/react": "11.10.0",
         "@emotion/styled": "11.10.0",
         "@mdx-js/loader": "2.0.0-rc.2",

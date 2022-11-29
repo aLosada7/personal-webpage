@@ -1,10 +1,12 @@
 import { Text } from "@edene/components";
 
 import Layout from "../components/layout/Layout";
+import Head from "../components/seo/Head";
 
 export default function Contact() {
 	return (
 		<Layout>
+			<Head title="Contact - Alvaro Losada" />
 			<section className="page-section first-section">
 				<div className="container">
 					<div className="row">

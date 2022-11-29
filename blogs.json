@@ -1,8 +1,8 @@
 [{
         "id": 1,
         "headline": "How a monorepo tool can help you to isolate your architecture from the framework",
-        "description": "Use Nx to create scalable applications with a testable architecture",
-        "slug": "nx-help-architecture",
+        "description": "Nx is my favourite tool to create a testable and scalable architecture",
+        "slug": "how-a-monorepo-tool-can-help-isolate-architecture-from-the-framework",
         "tags": ["Nx"],
         "date": "June 10th 2022"
     },
@@ -10,39 +10,39 @@
         "id": 2,
         "headline": "A guide start to micro-frontends in Angular",
         "description": "It's time to create your first project using micro-frontends in Angular",
-        "slug": "angular-microfrontends",
-        "tags": ["Research"],
+        "slug": "a-guide-start-to-micro-frontends-in-angular",
+        "tags": ["Angular"],
         "date": "May 15th 2022"
     },
     {
         "id": 3,
-        "headline": "Publish a Storybook with Nx",
+        "headline": "Publish a Storybook in Chromatic using Nx",
         "description": "Deploy your storybook online at the same time you introduce automatic visual testing",
-        "slug": "publish-storybook-nx",
-        "tags": ["Nx"],
+        "slug": "publish-a-storybook-in-chromatic-using-nx",
+        "tags": ["Storybook", "Nx"],
         "date": "June 10th 2022"
     },
     {
         "id": 4,
         "headline": "Building a simple and reusable Radio Group component with React",
-        "description": "A key trick for creating rich radio groups",
-        "slug": "radio-group",
+        "description": "Learn a key trick for creating from radio groups to other resusable components",
+        "slug": "building-a-simple-radio-group-component-in-react",
         "tags": ["React"],
         "date": "June 10th 2022"
     },
     {
         "id": 5,
-        "headline": "Building Edene I",
-        "description": "Nx, the key which gave me the consistency I needed",
-        "slug": "edene-i",
+        "headline": "What is Edene and why did I use Nx to create it",
+        "description": "I present you a totally customizable Design System to create efficient and eye catching user interfaces",
+        "slug": "what-is-edene-and-why-did-i-use-nx-to-create-it",
         "tags": ["React", "Nx"],
         "date": "September 20th 2022"
     },
     {
         "id": 6,
-        "headline": "Virtualization I",
-        "description": "Efficient list rendering in React",
-        "slug": "virtualization-i",
+        "headline": "Efficient list rendering in React using Virtualization",
+        "description": "Virtualize large lists can improve the performance of your application",
+        "slug": "efficient-list-rendering-in-react-using-virtualization",
         "tags": ["React", "Performance"],
         "date": "September 22th 2022"
     },
@@ -50,15 +50,15 @@
         "id": 7,
         "headline": "Debugging CSS in Storybook without DevTools",
         "description": "Three addons that will save you some time when debugging your application",
-        "slug": "devtools-storybook",
-        "tags": ["React", "CSS"],
+        "slug": "debugging-css-in-storybook-without-devtools",
+        "tags": ["Storybook", "CSS"],
         "date": "September 27th 2022"
     },
     {
         "id": 8,
-        "headline": "Creating your own library of components. An Alert component",
-        "description": "This is a new series of blogs about how to create different reusable components in React. The first one is an alert",
-        "slug": "creating-your-own--alert",
+        "headline": "Creating a component library. The Alert component",
+        "description": "Join me in the new series of blogs which will build a complate reusable components library in React",
+        "slug": "creating-a-component-library-the-alert-component",
         "tags": ["React"],
         "date": "November 19th 2022"
     }

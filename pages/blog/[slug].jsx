@@ -1,25 +1,33 @@
 import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
 
-import { Container, Text } from "@edene/components";
+import { Container, Heading } from "@edene/components";
+import { grays } from "@edene/foundations";
 
 import getPost from "../api/getPost";
 import Layout from "../../components/layout/Layout";
 import PostContent from "../../components/blog/PostContent";
+import Head from "../../components/seo/Head";
 
-export default function BlogItem({ siteTitle, frontmatter, markdownBody }) {
+export default function BlogItem({ slug, siteHeading, frontmatter, markdownBody }) {
 	if (!frontmatter) return <></>;
 
-	console.log(markdownBody);
-
 	return (
-		<Layout pageTitle={`${siteTitle}`}>
+		<Layout pageHeading={`${siteHeading}`}>
+			<Head title={`${frontmatter.title} - Alvaro Losada`} />
 			<section className="page-section first-section py-section">
 				<article>
-					<Container pv={6}>
-						<h2>{frontmatter.title}</h2>
-						<Text size="h5" mt={4}>
+					<Container pv={2}>
+						<Heading size="h3">
 							{frontmatter.date} - {frontmatter.readingTime}
-						</Text>
+						</Heading>
+						<Heading weight="bold" mt={4}>
+							{frontmatter.title}
+						</Heading>
+						<Heading size="h2" color={grays[3]} mt={2} mb={12}>
+							{frontmatter.description}
+						</Heading>
+						<Image src={`/blogs/${slug}.webp`} layout="responsive" width={800} height={500} />
 						<PostContent content={markdownBody} />
 					</Container>
 				</article>
@@ -37,7 +45,8 @@ export async function getStaticProps({ ...context }) {
 
 	return {
 		props: {
-			siteTitle: config.title,
+			slug,
+			siteHeading: config.title,
 			frontmatter: post.frontmatter,
 			markdownBody: mdxSource,
 		},

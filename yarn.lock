@@ -63,20 +63,15 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@edene/components@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@edene/components/-/components-0.0.6.tgz#21295332c8473b4b54f81072ac1b4f8a18cad79f"
-  integrity sha512-V35HewI4EriDGIeTwoCdlJNEQMXOVumqlPqWYM4VhlmW9laydWT1ES4F44A9HPSeAeqEj9mj8hSgnDbtAYNVKA==
+"@edene/components@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@edene/components/-/components-0.0.12.tgz#bbefec89251795722160db3c93fefb41d1d50eb8"
+  integrity sha512-mEdbm3K7CZi87C0Jmi9juIy0msEYcWdU4EMiTNtmdrZKm72s7kRHSaZfN4LK+VKYE0z5wFcfaG93FzLsA0PQnw==
 
-"@edene/foundations@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@edene/foundations/-/foundations-0.0.4.tgz#0f1e1d80f4a40b777ea98ff7c939c6714a50118a"
-  integrity sha512-fnZ7eFSCMPj63Ssa231weyYMvkgDXUBNZYmHLaMOyCTA3yEvAQzaTYuCcfh5+NNwPp+pPbnmscTOFhbmZZZqug==
-
-"@edene/hooks@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@edene/hooks/-/hooks-0.0.1.tgz#29709782921986e5c131b6fe22acb862d1879bce"
-  integrity sha512-y7lqfwbSLsNxU8DRQ8hAzyZtDc24JOlx9MeNFWCsoxUVHOB/EEbh6KhTqtlPOqwqzkdXgAgeHnOyH/RlvjrcFA==
+"@edene/foundations@0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@edene/foundations/-/foundations-0.0.10.tgz#2560e35c2994ca953d72749639de40ff0a1af186"
+  integrity sha512-pe7SNw7lNlXcxQbB2AQn9MA0oiStJ3kZ+mXeQlFiy+Lkc59VqjD9dc7/Arf/zBz8PXmhmi5d+4U4PDGzHvXRvQ==
 
 "@emotion/babel-plugin@^11.10.0":
   version "11.10.0"

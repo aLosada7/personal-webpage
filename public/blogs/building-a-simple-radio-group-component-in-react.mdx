@@ -1,0 +1,138 @@
+---
+title: Building a simple and reusable Radio Group component with React
+date: June 10th 2022
+description: Learn a key trick for creating from radio groups to other resusable components
+slug: building-a-simple-radio-group-component-in-react
+---
+
+export const meta = {
+	title: "Building a simple and reusable Radio Group component with React",
+	publishedOn: "June 10th 2022",
+	slug: "building-a-simple-radio-group-component-in-react",
+};
+
+In this blog I am going to show you one way to face the implementation of a complex UI in which we have to make a selection between a serie of options. You are probably thinking about the native HTML selector, but this might not be enough in case you want to recap or show some information for each of the selections.
+
+A plan or a credit card selection are two common examples that can have you investing a long time until you find a way to implement a clean and easy to use solution.
+
+Let’s dig in it. Imagine you are asked to implement a new feature to choose a payment option and one of its requirements is to introduce a credit card number and a cardholder. This would be the necessary code to write a basic radio group:
+
+```tsx
+const Template = () => {
+	const [value, setValue] = React.useState("1");
+	return (
+		<RadioGroup onChange={setValue}>
+			<Radio value="card">Credit Card</Radio>
+			<Radio value="affirm">Affirm</Radio>
+			<Radio value="solana">Solana</Radio>
+		</RadioGroup>
+	);
+};
+```
+
+In the example above, _RadioGroup_ would be a div component and _Radio_ different inputs with radio type.
+
+However, things get complicated when the UI has to recollect more data apart from the option selected.
+
+In the following example there is a component more complex radio group which we mus be required.
+
+![Radio Group UI](/blogs/building-a-simple-radio-group-component-in-react/radio-group.webp)
+At the same time we have to implement something which will be reusable in the future, when other requirements demand a similar solution.
+
+## Implementing the solution
+
+The solution to this problem is basically to introduce a context which will slow us to pass some information from the highest level component (_RadioGroup_) to the lowest level one (_Radio_). This solution will work no matter how deep the radio button is located . We can face any challenge optimistically regardless of the interface.
+
+Let’s see the code which would be necessary to solve this.
+
+```tsx
+import React, { createContext, ReactElement } from "react";
+
+export interface RadioGroupContext {
+	value?: string | number;
+	onChange?(nextValue: string): void;
+}
+
+export const RadioGroupContext = createContext<RadioGroupContext>({});
+
+export interface RadioGroupProps {
+	value?: string;
+	onChange?: any;
+	children: ReactElement[];
+}
+
+export const RadioGroup = ({ value, onChange, children }: RadioGroupProps) => {
+	return (
+		<RadioGroupContext.Provider value={{ value, onChange }}>
+			<div>{children}</div>
+		</RadioGroupContext.Provider>
+	);
+};
+```
+
+As you can see above, our component have introduced a context, and now it is the responsible to handle any action. We will more create an small react hook which will give the developer all the tools necessary to build any UI.
+
+```tsx
+import React from "react";
+import { useContext } from "react";
+import { RadioGroupContext } from "../RadioGroup";
+
+export const useRadioGroupContext = () => {
+	const { value, onChange: onChangeProp } = useContext(RadioGroupContext);
+
+	const onChange = React.useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>) => {
+			const nextValue = event.target.value;
+
+			onChangeProp?.(nextValue);
+		},
+		[onChangeProp]
+	);
+
+	return { value, onChange };
+};
+```
+
+The last part is to code the UI required. In the following example, I have created a component which solves a functionality similar to the one required above.
+
+```tsx
+const PaymentForm = () => {
+	const [value, setValue] = useState("1");
+	return (
+		<Container>
+			<Heading size="h5" mt={4} mb={4}>
+				Secure Payment
+			</Heading>
+			<RadioGroup kind="wrap" onChange={setValue} value={value} {...props}>
+				<div css={optionWrapper}>
+					<Radio value="1">Credit or debit card</Radio>
+					<TextInput placeholder="Card Number" leftIcon={<MaterialIcon>credit_card</MaterialIcon>} />
+					<TextInput placeholder="Card holder name" />
+				</div>
+				<div css={optionWrapper}>
+					<Radio value="2" cssLabelOverrides={onlyRadio}>
+						$17/month with Affirt
+					</Radio>
+				</div>
+				<div css={optionWrapper}>
+					<Radio value="3" cssLabelOverrides={onlyRadio}>
+						Solana Pay
+					</Radio>
+				</div>
+			</RadioGroup>
+		</Container>
+	);
+};
+```
+
+It is important to notice that elements like Container, Heading or TextInput are components which come from my component library **edene**. This is a project I have been working on for months as part of a learning process and also with the idea in mind of having a rich and testable UI component library made by my own which I can reuse in all my side-projects.
+
+This is a screenshot of the result.
+
+![Resultant Radio Group](/blogs/building-a-simple-radio-group-component-in-react/resultant-radio-group.webp)
+
+## Final thoughts
+
+As a developer, this challenges are an opportunity to show yourself the evolution you have made during your years dedicated to learn something that I am lucky enough to love.
+
+This implementation can be used in many cases, and after doing this once you will be able to implement any other requirement very fast. It is important to look to the future at the moment you are working in a new feature. This will help you to create a more readable and maintanable code. In any case, requirements can be asked to change, so our code has to be prepared to extension without breaking an existing code, which might be used by thousands of users. This way you can prevent situations in which your users will have to adapt to the new changes (Open-Closed principle).

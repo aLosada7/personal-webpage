@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { css } from "@emotion/react";
-import { useState, useEffect } from "react";
+
+import Head from "../components/seo/Head";
 
 import {
 	Container,
@@ -13,12 +15,38 @@ import {
 	SideNavPrincipal,
 	SideNavItem,
 	Image,
-	Title,
+	Heading,
+	Group,
 } from "@edene/components";
 import { until } from "@edene/foundations";
 
 import Layout from "../components/layout/Layout";
 import blogs from "../blogs.json";
+
+const FEATURE_MAIN_POST = {
+	id: 8,
+	headline: "Creating a component library. The Alert component",
+	description: "Join me in the new series of blogs which will build a complate reusable components library in React",
+	slug: "creating-a-component-library-the-alert-component",
+	tags: ["React"],
+	date: "November 19th 2022",
+};
+const FEATURE_ADDITIONAL_BLOG_1 = {
+	id: 7,
+	headline: "Debugging CSS in Storybook without DevTools",
+	description: "Three addons that will save you some time when debugging your application",
+	slug: "debugging-css-in-storybook-without-devtools",
+	tags: ["React", "CSS"],
+	date: "September 27th 2022",
+};
+const FEATURE_ADDITIONAL_BLOG_2 = {
+	id: 6,
+	headline: "Efficient list rendering in React using Virtualization",
+	description: "Virtualize large lists can improve the performance of your application",
+	slug: "efficient-list-rendering-in-react-using-virtualization",
+	tags: ["React", "Performance"],
+	date: "September 22th 2022",
+};
 
 const noPadding = css`
 	padding: 0;
@@ -36,7 +64,7 @@ const colorBlack = css`
 
 const Tags = ({ tags }) => {
 	return (
-		<>
+		<Group>
 			{tags.map((tag) => (
 				<Badge
 					key={tag}
@@ -48,7 +76,7 @@ const Tags = ({ tags }) => {
 					{tag}
 				</Badge>
 			))}
-		</>
+		</Group>
 	);
 };
 
@@ -59,7 +87,7 @@ const FeaturedBlogPost = ({ blog }) => (
 			<Text size="xxsm" mt={2}>
 				{blog.date}
 			</Text>
-			<Title size="h3">{blog.headline}</Title>
+			<Heading size="h3">{blog.headline}</Heading>
 			<Text size="sm" mt={2}>
 				{blog.description}
 			</Text>
@@ -104,7 +132,7 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 					`}
 				>
 					<Text size="xxsm">{blog.date}</Text>
-					<Title>{blog.headline}</Title>
+					<Heading size="h3">{blog.headline}</Heading>
 					<Text size="sm" mt={2}>
 						{blog.description}
 					</Text>
@@ -132,7 +160,7 @@ const BlogAllSection = ({ blog }) => {
 					<Text size="xxsm" mt={2}>
 						{blog.date}
 					</Text>
-					<Title size="h5">{blog.headline}</Title>
+					<Heading size="h5">{blog.headline}</Heading>
 					<Text size="sm" mt={2}>
 						{blog.description}
 					</Text>
@@ -149,19 +177,16 @@ export default function Blog() {
 	const [blogsFiltered, setBlogsFiltered] = useState([]);
 
 	const getBlogCategories = () => {
-		let blogCategories = blogs.reduce(
-			(result, blog) => {
-				const blogCategories = blog.tags.map((tech) => {
-					if (tech && !result.includes(tech)) {
-						return tech;
-					}
-				});
-				const newTechs = result.concat(blogCategories);
-				return newTechs.filter((element) => element != null);
-			},
-			["All categories"]
-		);
-		return blogCategories.sort();
+		let blogCategories = blogs.reduce((result, blog) => {
+			const blogCategories = blog.tags.map((tech) => {
+				if (tech && !result.includes(tech)) {
+					return tech;
+				}
+			});
+			const newTechs = result.concat(blogCategories);
+			return newTechs.filter((element) => element != null);
+		}, []);
+		return ["All categories", ...blogCategories.sort((a, b) => a.localeCompare(b))];
 	};
 
 	useEffect(() => {
@@ -174,11 +199,12 @@ export default function Blog() {
 			activeBlogCategory === "All categories"
 				? blogs
 				: blogs.filter((blog) => blog.tags.includes(activeBlogCategory));
-		setBlogsFiltered(blogsList);
+		setBlogsFiltered(blogsList.sort((a, b) => b.id - a.id));
 	}, [activeBlogCategory]);
 
 	return (
 		<Layout>
+			<Head title="Blog - Alvaro Losada" />
 			<section className="page-section first-section py-section">
 				<div className="container">
 					<div className="row">
@@ -192,9 +218,9 @@ export default function Blog() {
 			</section>
 			<section className="page-section py-section featured-blog-posts-section">
 				<Container ph={12}>
-					<Title size="h4" mb={4}>
+					<Heading size="h2" mb={4}>
 						Featured blog posts
-					</Title>
+					</Heading>
 					<Row>
 						<Col
 							lg={12}
@@ -204,7 +230,7 @@ export default function Blog() {
 								cursor: pointer;
 							`}
 						>
-							<FeaturedBlogPost blog={blogs[0]} />
+							<FeaturedBlogPost blog={FEATURE_MAIN_POST} />
 						</Col>
 						<Col
 							lg={12}
@@ -214,49 +240,46 @@ export default function Blog() {
 								cursor: pointer;
 							`}
 						>
-							<FeaturedAdditonalBlogPost blog={blogs[1]} />
-							<FeaturedAdditonalBlogPost blog={blogs[2]} />
+							<FeaturedAdditonalBlogPost blog={FEATURE_ADDITIONAL_BLOG_1} />
+							<FeaturedAdditonalBlogPost blog={FEATURE_ADDITIONAL_BLOG_2} />
 						</Col>
 					</Row>
 				</Container>
 			</section>
 			<section className="page-section py-section all-blog-posts-section">
 				<Container pv={8} ph={12}>
-					<Title size="h4" mb={4}>
+					<Heading size="h2" mb={4}>
 						All blog posts
-					</Title>
+					</Heading>
 					<Row>
 						<Col md={8} lg={6} cssOverrides={noPadding}>
 							<SideNav aria-label="Side navigation" mobileWidth="full">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
 									<SideNavPrincipal title="Blog categories" cssOverrides={[noMargin, colorBlack]}>
-										{blogCategories.map((category) => {
-											console.log(category === activeBlogCategory);
-											return (
-												<SideNavItem
-													key={category.slug}
-													isActive={category === activeBlogCategory}
-													onClick={() => setActiveBlogCategory(category)}
-													// badge={<Badge color="gray" text="3" />}
-													cssOverrides={css`
-														border-radius: 8px;
+										{blogCategories.map((category) => (
+											<SideNavItem
+												key={category.slug}
+												isActive={category === activeBlogCategory}
+												onClick={() => setActiveBlogCategory(category)}
+												// badge={<Badge color="gray" text="3" />}
+												cssOverrides={css`
+													border-radius: 8px;
 
-														:last-child {
-															margin-bottom: 0.7rem;
-														}
-													`}
-												>
-													{category}
-												</SideNavItem>
-											);
-										})}
+													:last-child {
+														margin-bottom: 0.7rem;
+													}
+												`}
+											>
+												{category}
+											</SideNavItem>
+										))}
 									</SideNavPrincipal>
 								</SideNavItems>
 							</SideNav>
 						</Col>
 						<Col md={16} lg={18}>
 							<Row>
-								{blogsFiltered.reverse().map((blog) => (
+								{blogsFiltered.map((blog) => (
 									<BlogAllSection blog={blog} key={blog.slug} />
 								))}
 							</Row>
