@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "./Navbar";
+import SocialNetworks from "./SocialNetworks";
 
 const DesktopMenuHeader = ({ mainPage }) => {
 	return (
@@ -16,14 +17,7 @@ const DesktopMenuHeader = ({ mainPage }) => {
 					</Link>
 				</div>
 				<Navbar menu="menu" />
-				<div className="social-networks-wrapper">
-					<a href="https://www.linkedin.com/in/alvarolosadadecastro/" target="_blank">
-						<Image src="/linkedin.svg" width="18" height="18" alt="My linkedin page" />
-					</a>
-					<a href="https://github.com/aLosada7" target="_blank">
-						<Image src="/github.svg" width="18" height="18" alt="My github page" />
-					</a>
-				</div>
+				<SocialNetworks />
 			</div>
 		</header>
 	);

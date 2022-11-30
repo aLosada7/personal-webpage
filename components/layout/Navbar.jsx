@@ -30,7 +30,7 @@ const Navbar = ({ menu }) => {
 					</li>
 					<li className="nav-item">
 						<a
-							href="https://62ed74f612c78f7bbe13743e-xrcriiifva.chromatic.com/?path=/story/getting-started--page"
+							href="https://main--62ed74f612c78f7bbe13743e.chromatic.com/?path=/story/typography-heading--weights"
 							target="_blank"
 							role="link"
 							aria-label="edene"

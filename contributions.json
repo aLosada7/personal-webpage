@@ -2,7 +2,7 @@
         "id": 1,
         "name": "edene",
         "smallDescription": "A Design System to create beautiful user experiences in React with a focus on spped, accesibility and consistency",
-        "live": "https://master--62ed74f612c78f7bbe13743e.chromatic.com",
+        "live": "https://main--62ed74f612c78f7bbe13743e.chromatic.com/?path=/story/typography-heading--weights",
         "repository": "https://github.com/aLosada7/edene",
         "lang": "edene",
         "repositoryAPI": null,

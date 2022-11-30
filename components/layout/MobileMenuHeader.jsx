@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import SocialNetworks from "./SocialNetworks";
+
 const MobileMenuHeader = ({ mainPage, mobileMenuOpen }) => {
 	return (
 		<header
@@ -17,14 +19,7 @@ const MobileMenuHeader = ({ mainPage, mobileMenuOpen }) => {
 					</a>
 				</Link>
 			</div>
-			<div className="social-networks-wrapper">
-				<a href="https://www.linkedin.com/in/alvarolosadadecastro/" target="_blank">
-					<img src="/linkedin.svg" alt="My linkedin page" />
-				</a>
-				<a href="https://github.com/aLosada7" target="_blank">
-					<img src="/github.svg" alt="My github page" />
-				</a>
-			</div>
+			<SocialNetworks />
 		</header>
 	);
 };

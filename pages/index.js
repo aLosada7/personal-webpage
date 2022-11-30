@@ -22,14 +22,14 @@ export default function Home() {
 								</Heading>
 								<div className="text mt-16 mb-16">
 									<Text mt={4} mb={4}>
-										I’m a Front-End Engineer living and working in León, Spain.
+										I’m a Front-End Engineer living and working in Madrid, Spain.
 									</Text>
 									<Text mt={4} mb={4}>
 										I work daily on building better and elegant software through writing clean,
 										testable and maintainable code.
 									</Text>
 								</div>
-								<div className="button-wrrapper mt-xxs mb-xxs">
+								<div className="button-wrrapper mt-xxs mb-xs">
 									<Link href="/about">
 										<a role="link" className="button buttons-common grey-button">
 											Learn More
