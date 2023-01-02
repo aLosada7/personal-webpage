@@ -1,7 +1,7 @@
 import { serialize } from "next-mdx-remote/serialize";
 import Image from "next/image";
 
-import { Container, Heading } from "@edene/components";
+import { Container, Heading, Text } from "@edene/components";
 import { grays } from "@edene/foundations";
 
 import getPost from "../api/getPost";
@@ -18,13 +18,13 @@ export default function BlogItem({ slug, siteHeading, frontmatter, markdownBody 
 			<section className="page-section first-section py-section">
 				<article>
 					<Container pv={2}>
-						<Heading size="h3">
+						<Text size="small">
 							{frontmatter.date} - {frontmatter.readingTime}
-						</Heading>
-						<Heading weight="bold" mt={4}>
+						</Text>
+						<Heading weight="bold" mt={2}>
 							{frontmatter.title}
 						</Heading>
-						<Heading size="h2" color={grays[3]} mt={2} mb={12}>
+						<Heading size="h3" color={grays[3]} mt={2} mb={12}>
 							{frontmatter.description}
 						</Heading>
 						<Image src={`/blogs/${slug}.webp`} layout="responsive" width={800} height={500} />

@@ -69,8 +69,9 @@ const Tags = ({ tags }) => {
 				<Badge
 					key={tag}
 					color="gray"
-					cssOverrides={css`
+					css={css`
 						margin-top: 0.5rem;
+						font-weight: 500;
 					`}
 				>
 					{tag}
@@ -84,11 +85,11 @@ const FeaturedBlogPost = ({ blog }) => (
 	<Link href={{ pathname: `/blog/${blog.slug}` }}>
 		<article>
 			<Image src={`/blogs/${blog.slug}.webp`} size="d" alt="Picture of a mountain" />
-			<Text size="xxsm" mt={2}>
+			<Text size="xsmall" mt={2}>
 				{blog.date}
 			</Text>
 			<Heading size="h3">{blog.headline}</Heading>
-			<Text size="sm" mt={2}>
+			<Text size="small" mt={2}>
 				{blog.description}
 			</Text>
 			<Tags tags={blog.tags} />
@@ -100,7 +101,7 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 	<Link href={{ pathname: `/blog/${blog.slug}` }}>
 		<article>
 			<Row
-				cssOverrides={css`
+				css={css`
 					${until.desktop} {
 						margin: 0;
 					}
@@ -108,7 +109,7 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 			>
 				<Col
 					md={12}
-					cssOverrides={css`
+					css={css`
 						padding: 0;
 					`}
 				>
@@ -116,7 +117,7 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 						src={`/blogs/${blog.slug}.webp`}
 						alt="Picture of a mountain"
 						size="e"
-						cssOverrides={css`
+						css={css`
 							margin-bottom: 0.5rem;
 						`}
 					/>
@@ -124,16 +125,16 @@ const FeaturedAdditonalBlogPost = ({ blog }) => (
 				<Col
 					md={12}
 					direction="column"
-					cssOverrides={css`
+					css={css`
 						${until.phablet} {
 							padding: 0;
 						}
 						margin-bottom: 1.5rem;
 					`}
 				>
-					<Text size="xxsm">{blog.date}</Text>
+					<Text size="xsmall">{blog.date}</Text>
 					<Heading size="h3">{blog.headline}</Heading>
-					<Text size="sm" mt={2}>
+					<Text size="small" mt={2}>
 						{blog.description}
 					</Text>
 					<Tags tags={blog.tags} />
@@ -149,7 +150,7 @@ const BlogAllSection = ({ blog }) => {
 			md={12}
 			lg={8}
 			direction="column"
-			cssOverrides={css`
+			css={css`
 				margin-bottom: 1.5rem;
 				cursor: pointer;
 			`}
@@ -157,11 +158,11 @@ const BlogAllSection = ({ blog }) => {
 			<Link href={{ pathname: `/blog/${blog.slug}` }}>
 				<article>
 					<Image size="d" src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
-					<Text size="xxsm" mt={2}>
+					<Text size="xsmall" mt={2}>
 						{blog.date}
 					</Text>
 					<Heading size="h5">{blog.headline}</Heading>
-					<Text size="sm" mt={2}>
+					<Text size="small" mt={2}>
 						{blog.description}
 					</Text>
 					<Tags tags={blog.tags} />
@@ -225,7 +226,7 @@ export default function Blog() {
 						<Col
 							lg={12}
 							direction="column"
-							cssOverrides={css`
+							css={css`
 								margin-bottom: 1.5rem;
 								cursor: pointer;
 							`}
@@ -235,7 +236,7 @@ export default function Blog() {
 						<Col
 							lg={12}
 							direction="column"
-							cssOverrides={css`
+							css={css`
 								margin-bottom: 1.5rem;
 								cursor: pointer;
 							`}
@@ -252,17 +253,17 @@ export default function Blog() {
 						All blog posts
 					</Heading>
 					<Row>
-						<Col md={8} lg={6} cssOverrides={noPadding}>
+						<Col md={8} lg={6} css={noPadding}>
 							<SideNav aria-label="Side navigation" mobileWidth="full">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
-									<SideNavPrincipal title="Blog categories" cssOverrides={[noMargin, colorBlack]}>
+									<SideNavPrincipal title="Blog categories" css={[noMargin, colorBlack]}>
 										{blogCategories.map((category) => (
 											<SideNavItem
 												key={category.slug}
 												isActive={category === activeBlogCategory}
 												onClick={() => setActiveBlogCategory(category)}
 												// badge={<Badge color="gray" text="3" />}
-												cssOverrides={css`
+												css={css`
 													border-radius: 8px;
 
 													:last-child {
