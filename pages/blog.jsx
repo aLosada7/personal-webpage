@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { css } from "@emotion/react";
-
-import Head from "../components/seo/Head";
-
 import {
 	Container,
 	Row,
@@ -17,9 +15,12 @@ import {
 	Image,
 	Heading,
 	Group,
+	Box,
+	Stack,
 } from "@edene/components";
 import { until } from "@edene/foundations";
 
+import Head from "../components/seo/Head";
 import Layout from "../components/layout/Layout";
 import blogs from "../blogs.json";
 
@@ -52,125 +53,109 @@ const noPadding = css`
 	padding: 0;
 `;
 
-const noMargin = css`
-	margin: 0;
-`;
-
-const colorBlack = css`
-	span {
-		color: black;
-	}
-`;
-
 const Tags = ({ tags }) => {
 	return (
 		<Group>
-			{tags.map((tag) => (
-				<Badge
-					key={tag}
-					color="gray"
-					css={css`
-						margin-top: 0.5rem;
-						font-weight: 500;
-					`}
-				>
-					{tag}
-				</Badge>
+			{(tags || []).map((tag) => (
+				<Box mt={2}>
+					<Badge
+						key={tag}
+						color="gray"
+						css={css`
+							font-weight: 500;
+						`}
+					>
+						{tag}
+					</Badge>
+				</Box>
 			))}
 		</Group>
 	);
 };
 
-const FeaturedBlogPost = ({ blog }) => (
+const FeaturedPost = ({ blog }) => (
 	<Link href={{ pathname: `/blog/${blog.slug}` }}>
-		<article>
-			<Image src={`/blogs/${blog.slug}.webp`} size="d" alt="Picture of a mountain" />
-			<Text size="xsmall" mt={2}>
-				{blog.date}
-			</Text>
-			<Heading size="h3">{blog.headline}</Heading>
-			<Text size="small" mt={2}>
-				{blog.description}
-			</Text>
+		<Box
+			component="article"
+			mb={4}
+			css={css`
+				width: 100%;
+			`}
+		>
+			<Box
+				mb={2}
+				css={css`
+					position: relative;
+					height: 304px;
+				`}
+			>
+				<Image component={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
+			</Box>
+			<Text size="xsmall">{blog.date}</Text>
+			<Heading size="h3" mb={1}>
+				{blog.headline}
+			</Heading>
+			<Text size="small">{blog.description}</Text>
 			<Tags tags={blog.tags} />
-		</article>
+		</Box>
 	</Link>
 );
 
-const FeaturedAdditonalBlogPost = ({ blog }) => (
+const AdditionalFeaturedPost = ({ blog }) => (
 	<Link href={{ pathname: `/blog/${blog.slug}` }}>
-		<article>
-			<Row
-				css={css`
-					${until.desktop} {
-						margin: 0;
-					}
-				`}
-			>
-				<Col
-					md={12}
-					css={css`
-						padding: 0;
-					`}
-				>
-					<Image
-						src={`/blogs/${blog.slug}.webp`}
-						alt="Picture of a mountain"
-						size="e"
+		<Box component="article" mb={4}>
+			<Row>
+				<Col md={12}>
+					<Box
+						mb={2}
 						css={css`
-							margin-bottom: 0.5rem;
+							position: relative;
+							width: 100%;
+							height: 194px;
 						`}
-					/>
+					>
+						<Image component={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
+					</Box>
 				</Col>
-				<Col
-					md={12}
-					direction="column"
-					css={css`
-						${until.phablet} {
-							padding: 0;
-						}
-						margin-bottom: 1.5rem;
-					`}
-				>
+				<Col md={12} direction="column">
 					<Text size="xsmall">{blog.date}</Text>
-					<Heading size="h3">{blog.headline}</Heading>
-					<Text size="small" mt={2}>
-						{blog.description}
-					</Text>
+					<Heading size="h3" mb={1}>
+						{blog.headline}
+					</Heading>
+					<Text size="small">{blog.description}</Text>
 					<Tags tags={blog.tags} />
 				</Col>
 			</Row>
-		</article>
+		</Box>
 	</Link>
 );
 
-const BlogAllSection = ({ blog }) => {
-	return (
-		<Col
-			md={12}
-			lg={8}
-			direction="column"
-			css={css`
-				margin-bottom: 1.5rem;
-				cursor: pointer;
-			`}
-		>
-			<Link href={{ pathname: `/blog/${blog.slug}` }}>
-				<article>
-					<Image size="d" src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
-					<Text size="xsmall" mt={2}>
-						{blog.date}
-					</Text>
-					<Heading size="h5">{blog.headline}</Heading>
-					<Text size="small" mt={2}>
-						{blog.description}
-					</Text>
-					<Tags tags={blog.tags} />
-				</article>
-			</Link>
-		</Col>
-	);
-};
+const Post = ({ blog }) => (
+	<Link href={{ pathname: `/blog/${blog.slug}` }}>
+		<Box component="article" mb={4}>
+			<Box
+				mb={2}
+				css={css`
+					position: relative;
+					height: 194px;
+				`}
+			>
+				<Image
+					component={NextImage}
+					layout="fill"
+					src={`/blogs/${blog.slug}.webp`}
+					alt="Picture of a mountain"
+				/>
+			</Box>
+			<Text size="xsmall">{blog.date}</Text>
+			<Heading size="h3" mb={1}>
+				{blog.headline}
+			</Heading>
+			<Text size="small">{blog.description}</Text>
+			<Tags tags={blog.tags} />
+		</Box>
+	</Link>
+);
 
 export default function Blog() {
 	const [activeBlogCategory, setActiveBlogCategory] = useState("All categories");
@@ -223,26 +208,12 @@ export default function Blog() {
 						Featured blog posts
 					</Heading>
 					<Row>
-						<Col
-							lg={12}
-							direction="column"
-							css={css`
-								margin-bottom: 1.5rem;
-								cursor: pointer;
-							`}
-						>
-							<FeaturedBlogPost blog={FEATURE_MAIN_POST} />
+						<Col lg={12}>
+							<FeaturedPost blog={FEATURE_MAIN_POST} />
 						</Col>
-						<Col
-							lg={12}
-							direction="column"
-							css={css`
-								margin-bottom: 1.5rem;
-								cursor: pointer;
-							`}
-						>
-							<FeaturedAdditonalBlogPost blog={FEATURE_ADDITIONAL_BLOG_1} />
-							<FeaturedAdditonalBlogPost blog={FEATURE_ADDITIONAL_BLOG_2} />
+						<Col lg={12} direction="column">
+							<AdditionalFeaturedPost blog={FEATURE_ADDITIONAL_BLOG_1} />
+							<AdditionalFeaturedPost blog={FEATURE_ADDITIONAL_BLOG_2} />
 						</Col>
 					</Row>
 				</Container>
@@ -253,16 +224,15 @@ export default function Blog() {
 						All blog posts
 					</Heading>
 					<Row>
-						<Col md={8} lg={6} css={noPadding}>
+						{/* <Col md={8} lg={6} css={noPadding}>
 							<SideNav aria-label="Side navigation" mobileWidth="full">
 								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
-									<SideNavPrincipal title="Blog categories" css={[noMargin, colorBlack]}>
+									<SideNavPrincipal>
 										{blogCategories.map((category) => (
 											<SideNavItem
 												key={category.slug}
 												isActive={category === activeBlogCategory}
 												onClick={() => setActiveBlogCategory(category)}
-												// badge={<Badge color="gray" text="3" />}
 												css={css`
 													border-radius: 8px;
 
@@ -279,12 +249,14 @@ export default function Blog() {
 							</SideNav>
 						</Col>
 						<Col md={16} lg={18}>
-							<Row>
-								{blogsFiltered.map((blog) => (
-									<BlogAllSection blog={blog} key={blog.slug} />
-								))}
-							</Row>
-						</Col>
+							<Row> */}
+						{blogsFiltered.map((blog) => (
+							<Col md={12} lg={8} direction="column" key={blog.slug}>
+								<Post blog={blog} />
+							</Col>
+						))}
+						{/* </Row>
+						</Col> */}
 					</Row>
 				</Container>
 			</section>

@@ -1,7 +1,7 @@
 import { serialize } from "next-mdx-remote/serialize";
-import Image from "next/image";
-
-import { Container, Heading, Text } from "@edene/components";
+import NextImage from "next/image";
+import { css } from "@emotion/react";
+import { Container, Heading, Text, Image, Box } from "@edene/components";
 import { grays } from "@edene/foundations";
 
 import getPost from "../api/getPost";
@@ -27,7 +27,15 @@ export default function BlogItem({ slug, siteHeading, frontmatter, markdownBody 
 						<Heading size="h3" color={grays[3]} mt={2} mb={12}>
 							{frontmatter.description}
 						</Heading>
-						<Image src={`/blogs/${slug}.webp`} layout="responsive" width={800} height={500} />
+						<Box
+							css={css`
+								position: relative;
+								width: 100%;
+								height: 500px;
+							`}
+						>
+							<Image component={NextImage} layout="fill" src={`/blogs/${slug}.webp`} />
+						</Box>
 						<PostContent content={markdownBody} />
 					</Container>
 				</article>

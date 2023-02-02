@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+import NextImage from "next/image";
 
-import { Text, Heading } from "@edene/components";
+import { Image, Text, Heading } from "@edene/components";
 
 import HomeHeader from "../components/layout/HomeHeader";
 import Layout from "../components/layout/Layout";
@@ -40,7 +40,13 @@ export default function Home() {
 						</div>
 						<div className="col-8 col-mobile-24 col-offset-mobile-0">
 							<div className="about-img-wrapper">
-								<Image src="/alvaro.webp" width="280" height="375" alt="Alvaro profile picture" />
+								<Image
+									component={NextImage}
+									src="/alvaro.webp"
+									width="280"
+									height="375"
+									alt="Alvaro profile picture"
+								/>
 							</div>
 						</div>
 					</div>
