@@ -1,24 +1,8 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import NextImage from "next/image";
 import { css } from "@emotion/react";
-import {
-	Container,
-	Row,
-	Col,
-	Badge,
-	Text,
-	SideNav,
-	SideNavItems,
-	SideNavPrincipal,
-	SideNavItem,
-	Image,
-	Heading,
-	Group,
-	Box,
-	Stack,
-} from "@edene/components";
-import { until } from "@edene/foundations";
+import { Container, Row, Col, Badge, Text, Link, Image, Heading, Group, Box } from "@edene/components";
 
 import Head from "../components/seo/Head";
 import Layout from "../components/layout/Layout";
@@ -57,7 +41,7 @@ const Tags = ({ tags }) => {
 	return (
 		<Group>
 			{(tags || []).map((tag) => (
-				<Box mt={2}>
+				<Box key={tag} mt={2}>
 					<Badge
 						key={tag}
 						color="gray"
@@ -74,12 +58,12 @@ const Tags = ({ tags }) => {
 };
 
 const FeaturedPost = ({ blog }) => (
-	<Link href={{ pathname: `/blog/${blog.slug}` }}>
+	<Link as={NextLink} href={{ pathname: `/blog/${blog.slug}` }}>
 		<Box
-			component="article"
+			as="article"
 			mb={4}
 			css={css`
-				width: 100%;
+				cursor: pointer;
 			`}
 		>
 			<Box
@@ -89,12 +73,10 @@ const FeaturedPost = ({ blog }) => (
 					height: 304px;
 				`}
 			>
-				<Image component={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
+				<Image as={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
 			</Box>
 			<Text size="xsmall">{blog.date}</Text>
-			<Heading size="h3" mb={1}>
-				{blog.headline}
-			</Heading>
+			<Heading size="h3">{blog.headline}</Heading>
 			<Text size="small">{blog.description}</Text>
 			<Tags tags={blog.tags} />
 		</Box>
@@ -102,8 +84,14 @@ const FeaturedPost = ({ blog }) => (
 );
 
 const AdditionalFeaturedPost = ({ blog }) => (
-	<Link href={{ pathname: `/blog/${blog.slug}` }}>
-		<Box component="article" mb={4}>
+	<Link as={NextLink} href={{ pathname: `/blog/${blog.slug}` }}>
+		<Box
+			as="article"
+			mb={4}
+			css={css`
+				cursor: pointer;
+			`}
+		>
 			<Row>
 				<Col md={12}>
 					<Box
@@ -114,14 +102,12 @@ const AdditionalFeaturedPost = ({ blog }) => (
 							height: 194px;
 						`}
 					>
-						<Image component={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
+						<Image as={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt={blog.slug} />
 					</Box>
 				</Col>
 				<Col md={12} direction="column">
 					<Text size="xsmall">{blog.date}</Text>
-					<Heading size="h3" mb={1}>
-						{blog.headline}
-					</Heading>
+					<Heading size="h3">{blog.headline}</Heading>
 					<Text size="small">{blog.description}</Text>
 					<Tags tags={blog.tags} />
 				</Col>
@@ -131,8 +117,14 @@ const AdditionalFeaturedPost = ({ blog }) => (
 );
 
 const Post = ({ blog }) => (
-	<Link href={{ pathname: `/blog/${blog.slug}` }}>
-		<Box component="article" mb={4}>
+	<Link as={NextLink} href={{ pathname: `/blog/${blog.slug}` }}>
+		<Box
+			as="article"
+			mb={4}
+			css={css`
+				cursor: pointer;
+			`}
+		>
 			<Box
 				mb={2}
 				css={css`
@@ -140,17 +132,10 @@ const Post = ({ blog }) => (
 					height: 194px;
 				`}
 			>
-				<Image
-					component={NextImage}
-					layout="fill"
-					src={`/blogs/${blog.slug}.webp`}
-					alt="Picture of a mountain"
-				/>
+				<Image as={NextImage} layout="fill" src={`/blogs/${blog.slug}.webp`} alt="Picture of a mountain" />
 			</Box>
 			<Text size="xsmall">{blog.date}</Text>
-			<Heading size="h3" mb={1}>
-				{blog.headline}
-			</Heading>
+			<Heading size="h3">{blog.headline}</Heading>
 			<Text size="small">{blog.description}</Text>
 			<Tags tags={blog.tags} />
 		</Box>
@@ -192,21 +177,10 @@ export default function Blog() {
 		<Layout>
 			<Head title="Blog - Alvaro Losada" />
 			<section className="page-section first-section py-section">
-				<div className="container">
-					<div className="row">
-						<div className="col-16 offset-4 col-mobile-24 col-mobile-offset-0">
-							<h2 className="page-title">
-								<strong>Blog.</strong>
-							</h2>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section className="page-section py-section featured-blog-posts-section">
-				<Container ph={12}>
-					<Heading size="h2" mb={4}>
-						Featured blog posts
-					</Heading>
+				<Container>
+					<Box pb={2}>
+						<Heading size="h2">Featured blog posts</Heading>
+					</Box>
 					<Row>
 						<Col lg={12}>
 							<FeaturedPost blog={FEATURE_MAIN_POST} />
@@ -218,48 +192,18 @@ export default function Blog() {
 					</Row>
 				</Container>
 			</section>
-			<section className="page-section py-section all-blog-posts-section">
-				<Container pv={8} ph={12}>
-					<Heading size="h2" mb={4}>
-						All blog posts
-					</Heading>
-					<Row>
-						{/* <Col md={8} lg={6} css={noPadding}>
-							<SideNav aria-label="Side navigation" mobileWidth="full">
-								<SideNavItems hideIcon activeColor="#F1EDF9" hoverColor="transparent">
-									<SideNavPrincipal>
-										{blogCategories.map((category) => (
-											<SideNavItem
-												key={category.slug}
-												isActive={category === activeBlogCategory}
-												onClick={() => setActiveBlogCategory(category)}
-												css={css`
-													border-radius: 8px;
-
-													:last-child {
-														margin-bottom: 0.7rem;
-													}
-												`}
-											>
-												{category}
-											</SideNavItem>
-										))}
-									</SideNavPrincipal>
-								</SideNavItems>
-							</SideNav>
+			<Container>
+				<Box pb={2}>
+					<Heading size="h2">All blog posts</Heading>
+				</Box>
+				<Row>
+					{blogsFiltered.map((blog) => (
+						<Col md={12} lg={8} direction="column" key={blog.slug}>
+							<Post blog={blog} />
 						</Col>
-						<Col md={16} lg={18}>
-							<Row> */}
-						{blogsFiltered.map((blog) => (
-							<Col md={12} lg={8} direction="column" key={blog.slug}>
-								<Post blog={blog} />
-							</Col>
-						))}
-						{/* </Row>
-						</Col> */}
-					</Row>
-				</Container>
-			</section>
+					))}
+				</Row>
+			</Container>
 		</Layout>
 	);
 }
