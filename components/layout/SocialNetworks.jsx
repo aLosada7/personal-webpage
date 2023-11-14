@@ -9,6 +9,9 @@ const SocialNetworks = () => (
 		<Link href="https://twitter.com/aLosada_dev" target="_blank">
 			<Image component={NextImage} src="/twitter.svg" width="18" height="18" alt="My twitter page" />
 		</Link>
+		<Link href="https://www.youtube.com/@aLosada_dev" target="_blank">
+			<Image component={NextImage} src="/youtube.svg" width="18" height="18" alt="My Youtube channel" />
+		</Link>
 		<Link href="https://medium.com/@alvarolosada" target="_blank">
 			<Image component={NextImage} src="/medium.svg" width="18" height="18" alt="My medium page" />
 		</Link>
